@@ -1,7 +1,7 @@
 # Copyright (c) 2024, up.ac.th and contributors
 # For license information, please see license.txt
 
-# import frappe
+import frappe
 from frappe.model.document import Document
 
 
@@ -38,3 +38,43 @@ class DisabledPerson(Document):
 	# end: auto-generated types
 
 	pass
+
+def get_disabled_center_list(user=None) :
+	if not user :
+		user = frappe.session.user
+	disabled_center_list = frappe.get_all("Disabled Center User",fields='*',filters={
+		'user' : user
+	},pluck="parent")
+
+	return disabled_center_list if disabled_center_list else []
+
+
+def check_user_is_admin():
+	if frappe.user == 'Administrator' :
+		return True
+	
+	return False
+
+def get_permission_query_conditions(user=None):
+	from frappe.core.doctype.user.user import User
+
+	if not user :
+		user = frappe.session.user
+	disabled_center_list = get_disabled_center_list(user)
+	if check_user_is_admin() :
+		return ""
+	if len(disabled_center_list) > 0 :
+		disabled_center_list_str = ','.join([f"'{x}'" for x in disabled_center_list])
+		return '(`tabDisabled Person`.disabled_center in ({disabled_center_list}))'.format(disabled_center_list=disabled_center_list_str)
+	return ''
+
+def has_permission(doc, user=None, permission_type=None):
+	if not user :
+		user = frappe.session.user
+    # when reading a document allow if event is Public
+	disabled_center_list = get_disabled_center_list(user)
+
+	if doc.disabled_center in disabled_center_list :
+		return True
+
+	return False
