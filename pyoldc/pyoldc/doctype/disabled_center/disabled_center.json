@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:title",
+ "creation": "2024-04-18 11:05:55.217223",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "center_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "\u0e0a\u0e37\u0e48\u0e2d\u0e28\u0e39\u0e19\u0e22\u0e4c",
+   "unique": 1
+  },
+  {
+   "fieldname": "center_status",
+   "fieldtype": "Select",
+   "label": "\u0e2a\u0e16\u0e32\u0e19\u0e30",
+   "options": "\u0e2d\u0e1b\u0e17\n\u0e23\u0e1e\u0e2a\u0e15\n\u0e2d\u0e37\u0e48\u0e19\u0e46"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-18 11:08:03.446708",
+ "modified_by": "Administrator",
+ "module": "Pyoldc",
+ "name": "Disabled Center",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
