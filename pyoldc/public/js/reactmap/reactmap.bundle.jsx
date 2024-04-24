@@ -13,10 +13,10 @@ export function react_map_control({wrapper,frm,field}) {
 	return root
 }
 
-export function react_thai_datepicker_control({wrapper,frm,field}) {
+export function react_thai_datepicker_control({wrapper,frm,field,labelValue}) {
 	const $wrapper = $(wrapper);
 	const root = createRoot($wrapper.get(0));
-	root.render(<CustomDatePicker frm={frm} field={field} />);
+	root.render(<CustomDatePicker frm={frm} field={field} labelValue={labelValue} />);
 	return root
 }
 

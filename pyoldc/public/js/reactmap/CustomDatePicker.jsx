@@ -3,7 +3,7 @@ import { ThaiDatePicker } from "thaidatepicker-react";
 import DatePicker from "react-datepicker";
 import dayjs from "dayjs";
 
-export function CustomDatePicker({ frm, field }) {
+export function CustomDatePicker({ frm, field, labelValue }) {
 
   const ConvertToThaiYear = (christYear) => {
     return christYear + 543;
@@ -16,20 +16,19 @@ export function CustomDatePicker({ frm, field }) {
 
 
     return (
-      <div className="frappe-control input-max-width" data-fieldtype="Date" data-fieldname="birthdate">
+      <div className="frappe-control input-max-width">
         <div className="form-group">
           <div className="clearfix">
-            <label className="control-label" style={{ paddingRight: '0px' }} >วัน-เดือน-ปี เกิด (พ.ศ.)</label>
+            <label className="control-label" style={{ paddingRight: '0px' }} >{labelValue}</label>
             <span className="help"></span>
           </div>
           <div className="control-input-wrapper">
             <div className="control-input">
-              <input className="input-with-feedback form-control" type="text" value={props.value} readOnly onClick={props.onClick}></input>
+              <input className="input-with-feedback form-control" type="text" value={props.value} onClick={props.onClick}></input>
             </div>
             <div className="control-value like-disabled-input" style={{ display: 'none' }}>06-01-2000</div>
             <p className="help-box small text-muted"></p>
           </div>
-          <span className="tooltip-content">birthdate</span>
         </div>
       </div>
     )
@@ -51,7 +50,7 @@ export function CustomDatePicker({ frm, field }) {
   return (
     <ThaiDatePicker value={startDate}
       inputProps={{ displayFormat: "DD MMMM YYYY" }}
-
+      clearable={false}
       onChange={(date) => _setStartDate(date)}
       customInput={ExampleCustomInput}
     />

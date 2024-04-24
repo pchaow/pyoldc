@@ -17,10 +17,13 @@
   "address",
   "disabled_type",
   "column_break_zmyq",
+  "birthdate_thai",
+  "card_issue_date_thai",
+  "card_expired_date_thai",
+  "column_break_rkst",
   "birthdate",
   "card_issue_date",
   "card_expired_date",
-  "birthdate_thai",
   "section_break_ifzn",
   "book_account_number",
   "column_break_osxz",
@@ -81,7 +84,8 @@
   {
    "fieldname": "birthdate",
    "fieldtype": "Date",
-   "label": "\u0e27\u0e31\u0e19-\u0e40\u0e14\u0e37\u0e2d\u0e19-\u0e1b\u0e35 \u0e40\u0e01\u0e34\u0e14 (\u0e04.\u0e28.)"
+   "label": "\u0e27\u0e31\u0e19-\u0e40\u0e14\u0e37\u0e2d\u0e19-\u0e1b\u0e35 \u0e40\u0e01\u0e34\u0e14 (\u0e04.\u0e28.)",
+   "read_only": 1
   },
   {
    "fieldname": "card_issue_date",
@@ -225,11 +229,27 @@
    "fieldtype": "HTML",
    "label": "birthdate_thai",
    "options": "<div id=\"birthdate_thai_field\" >\n\n</div>"
+  },
+  {
+   "fieldname": "column_break_rkst",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "card_issue_date_thai",
+   "fieldtype": "HTML",
+   "label": "card_issue_date_thai",
+   "options": "<div id=\"card_issue_date_field\" >\n\n</div>"
+  },
+  {
+   "fieldname": "card_expired_date_thai",
+   "fieldtype": "HTML",
+   "label": "card_expired_date_thai",
+   "options": "<div id=\"card_expired_date_field\" >\n\n</div>"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-24 08:21:23.142639",
+ "modified": "2024-04-24 10:16:51.416473",
  "modified_by": "Administrator",
  "module": "Pyoldc",
  "name": "Disabled Person",

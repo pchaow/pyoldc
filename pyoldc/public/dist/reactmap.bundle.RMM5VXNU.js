@@ -54411,15 +54411,13 @@
 
   // ../pyoldc/pyoldc/public/js/reactmap/CustomDatePicker.jsx
   var import_dayjs2 = __toESM(require_dayjs_min());
-  function CustomDatePicker({ frm, field }) {
+  function CustomDatePicker({ frm, field, labelValue }) {
     const ConvertToThaiYear2 = (christYear) => {
       return christYear + 543;
     };
     const ExampleCustomInput = React5.forwardRef((props, ref) => {
       return /* @__PURE__ */ React5.createElement("div", {
-        className: "frappe-control input-max-width",
-        "data-fieldtype": "Date",
-        "data-fieldname": "birthdate"
+        className: "frappe-control input-max-width"
       }, /* @__PURE__ */ React5.createElement("div", {
         className: "form-group"
       }, /* @__PURE__ */ React5.createElement("div", {
@@ -54427,7 +54425,7 @@
       }, /* @__PURE__ */ React5.createElement("label", {
         className: "control-label",
         style: { paddingRight: "0px" }
-      }, "\u0E27\u0E31\u0E19-\u0E40\u0E14\u0E37\u0E2D\u0E19-\u0E1B\u0E35 \u0E40\u0E01\u0E34\u0E14 (\u0E1E.\u0E28.)"), /* @__PURE__ */ React5.createElement("span", {
+      }, labelValue), /* @__PURE__ */ React5.createElement("span", {
         className: "help"
       })), /* @__PURE__ */ React5.createElement("div", {
         className: "control-input-wrapper"
@@ -54437,16 +54435,13 @@
         className: "input-with-feedback form-control",
         type: "text",
         value: props.value,
-        readOnly: true,
         onClick: props.onClick
       })), /* @__PURE__ */ React5.createElement("div", {
         className: "control-value like-disabled-input",
         style: { display: "none" }
       }, "06-01-2000"), /* @__PURE__ */ React5.createElement("p", {
         className: "help-box small text-muted"
-      })), /* @__PURE__ */ React5.createElement("span", {
-        className: "tooltip-content"
-      }, "birthdate")));
+      }))));
     });
     const [startDate, setStartDate] = React5.useState(frm.get_field(field).get_value());
     React5.useEffect(() => {
@@ -54461,6 +54456,7 @@
     return /* @__PURE__ */ React5.createElement(ThaiDatePicker, {
       value: startDate,
       inputProps: { displayFormat: "DD MMMM YYYY" },
+      clearable: false,
       onChange: (date) => _setStartDate(date),
       customInput: ExampleCustomInput
     });
@@ -54478,12 +54474,13 @@
     }));
     return root;
   }
-  function react_thai_datepicker_control({ wrapper, frm, field }) {
+  function react_thai_datepicker_control({ wrapper, frm, field, labelValue }) {
     const $wrapper = $(wrapper);
     const root = (0, import_client.createRoot)($wrapper.get(0));
     root.render(/* @__PURE__ */ React6.createElement(CustomDatePicker, {
       frm,
-      field
+      field,
+      labelValue
     }));
     return root;
   }
@@ -54565,4 +54562,4 @@ object-assign
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-//# sourceMappingURL=reactmap.bundle.UVZWFANC.js.map
+//# sourceMappingURL=reactmap.bundle.RMM5VXNU.js.map
