@@ -54434,7 +54434,7 @@
       }, /* @__PURE__ */ React5.createElement("input", {
         className: "input-with-feedback form-control",
         type: "text",
-        value: props.value,
+        defaultValue: props.value,
         onClick: props.onClick
       })), /* @__PURE__ */ React5.createElement("div", {
         className: "control-value like-disabled-input",
@@ -54444,10 +54444,13 @@
       }))));
     });
     const [startDate, setStartDate] = React5.useState(frm.get_field(field).get_value());
-    React5.useEffect(() => {
+    const refresh = () => {
       if (frm.get_field(field).get_value()) {
         setStartDate(frm.get_field(field).get_value());
       }
+    };
+    React5.useEffect(() => {
+      refresh();
     }, [frm, field]);
     const _setStartDate = (date) => {
       setStartDate(date);
@@ -54562,4 +54565,4 @@ object-assign
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-//# sourceMappingURL=reactmap.bundle.RMM5VXNU.js.map
+//# sourceMappingURL=reactmap.bundle.WPSL4R6L.js.map

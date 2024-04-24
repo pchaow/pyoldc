@@ -6,7 +6,9 @@
 
 
 frappe.ui.form.on("Disabled Person", {
-
+	setup(frm) {
+		frm.reactComponent = {}
+	},
 	refresh(frm) {
 
 		$("#disabled-person-location_tab-tab").click(() => {
@@ -19,17 +21,13 @@ frappe.ui.form.on("Disabled Person", {
 
 		setTimeout(() => {
 			frappe.require("reactmap.bundle.jsx").then(() => {
-				frappe.ui.ReactMapControl({ wrapper: `div#react_app_field`, frm: frm, field: 'geojson_position' })
-				frappe.ui.CustomDatePicker({ wrapper: `div#birthdate_thai_field`, frm: frm, field: 'birthdate' ,labelValue:"วัน-เดือน-ปี เกิด (พ.ศ.)" })
-				frappe.ui.CustomDatePicker({ wrapper: `div#card_issue_date_field`, frm: frm, field: 'card_issue_date' ,labelValue:"วันออกบัตร (พ.ศ.)"})
-				frappe.ui.CustomDatePicker({ wrapper: `div#card_expired_date_field`, frm: frm, field: 'card_expired_date' ,labelValue:"วันบัตรหมดอายุ (พ.ศ.)"})
-
-
+				frm.reactComponent.map = frappe.ui.ReactMapControl({ wrapper: `div#react_app_field`, frm: frm, field: 'geojson_position' })
+				frm.reactComponent.birthdate = frappe.ui.CustomDatePicker({ wrapper: `div#birthdate_thai_field`, frm: frm, field: 'birthdate', labelValue: "วัน-เดือน-ปี เกิด (พ.ศ.)" })
+				frm.reactComponent.cardIssue = frappe.ui.CustomDatePicker({ wrapper: `div#card_issue_date_field`, frm: frm, field: 'card_issue_date', labelValue: "วันออกบัตร (พ.ศ.)" })
+				frm.reactComponent.cardExpired = frappe.ui.CustomDatePicker({ wrapper: `div#card_expired_date_field`, frm: frm, field: 'card_expired_date', labelValue: "วันบัตรหมดอายุ (พ.ศ.)" })
 			});
 		}, 500)
-
-
-
-
+	},
+	card_issue_date(frm) {
 	}
 });

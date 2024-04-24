@@ -10,11 +10,8 @@ export function CustomDatePicker({ frm, field, labelValue }) {
   };
 
 
+
   const ExampleCustomInput = React.forwardRef((props, ref) => {
-
-
-
-
     return (
       <div className="frappe-control input-max-width">
         <div className="form-group">
@@ -24,7 +21,7 @@ export function CustomDatePicker({ frm, field, labelValue }) {
           </div>
           <div className="control-input-wrapper">
             <div className="control-input">
-              <input className="input-with-feedback form-control" type="text" value={props.value} onClick={props.onClick}></input>
+              <input className="input-with-feedback form-control" type="text" defaultValue={props.value} onClick={props.onClick}></input>
             </div>
             <div className="control-value like-disabled-input" style={{ display: 'none' }}>06-01-2000</div>
             <p className="help-box small text-muted"></p>
@@ -36,10 +33,14 @@ export function CustomDatePicker({ frm, field, labelValue }) {
 
   const [startDate, setStartDate] = React.useState(frm.get_field(field).get_value());
 
-  React.useEffect(() => {
+  const refresh = () => {
     if (frm.get_field(field).get_value()) {
       setStartDate(frm.get_field(field).get_value())
     }
+  }
+
+  React.useEffect(() => {
+    refresh()
   }, [frm, field])
 
   const _setStartDate = (date) => {

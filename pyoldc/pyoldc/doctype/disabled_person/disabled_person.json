@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:personal_number",
+ "autoname": "format:{personal_number}",
  "creation": "2024-04-18 13:06:50.431247",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -90,12 +90,14 @@
   {
    "fieldname": "card_issue_date",
    "fieldtype": "Date",
-   "label": "\u0e27\u0e31\u0e19\u0e2d\u0e2d\u0e01\u0e1a\u0e31\u0e15\u0e23 (\u0e04.\u0e28.)"
+   "label": "\u0e27\u0e31\u0e19\u0e2d\u0e2d\u0e01\u0e1a\u0e31\u0e15\u0e23 (\u0e04.\u0e28.)",
+   "read_only": 1
   },
   {
    "fieldname": "card_expired_date",
    "fieldtype": "Date",
-   "label": "\u0e27\u0e31\u0e19\u0e1a\u0e31\u0e15\u0e23\u0e2b\u0e21\u0e14\u0e2d\u0e32\u0e22\u0e38 (\u0e04.\u0e28.)"
+   "label": "\u0e27\u0e31\u0e19\u0e1a\u0e31\u0e15\u0e23\u0e2b\u0e21\u0e14\u0e2d\u0e32\u0e22\u0e38 (\u0e04.\u0e28.)",
+   "read_only": 1
   },
   {
    "fieldname": "disabled_card",
@@ -249,11 +251,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-24 10:16:51.416473",
+ "modified": "2024-04-24 12:31:49.556557",
  "modified_by": "Administrator",
  "module": "Pyoldc",
  "name": "Disabled Person",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

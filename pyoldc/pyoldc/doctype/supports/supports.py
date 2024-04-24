@@ -13,7 +13,9 @@ class Supports(Document):
 
 	if TYPE_CHECKING:
 		from frappe.types import DF
+		from pyoldc.pyoldc.doctype.supportevidence.supportevidence import SupportEvidence
 
+		extras: DF.Table[SupportEvidence]
 		support_budget_year: DF.Data | None
 		support_date: DF.Date | None
 		support_detail: DF.SmallText | None
