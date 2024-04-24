@@ -16,6 +16,7 @@ class DisabledCenter(Document):
 		from pyoldc.pyoldc.doctype.disabled_center_user.disabled_center_user import DisabledCenterUser
 
 		center_status: DF.Literal["\u0e2d\u0e1b\u0e17", "\u0e23\u0e1e\u0e2a\u0e15", "\u0e2d\u0e37\u0e48\u0e19\u0e46"]
+		test: DF.Color | None
 		title: DF.Data | None
 		users: DF.Table[DisabledCenterUser]
 	# end: auto-generated types

@@ -1,0 +1,111 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-18 19:58:36.604042",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "support_section",
+  "support_date",
+  "support_budget_year",
+  "support_type_name",
+  "support_giver",
+  "support_receiver",
+  "support_receiver_name",
+  "support_receiver_surname",
+  "support_detail",
+  "support_image"
+ ],
+ "fields": [
+  {
+   "fieldname": "support_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "\u0e27\u0e31\u0e19\u0e17\u0e35\u0e48\u0e44\u0e14\u0e49\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d (\u0e04.\u0e28.)"
+  },
+  {
+   "fieldname": "support_detail",
+   "fieldtype": "Small Text",
+   "label": "\u0e23\u0e32\u0e22\u0e25\u0e30\u0e40\u0e2d\u0e35\u0e22\u0e14\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d"
+  },
+  {
+   "fieldname": "support_receiver",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "\u0e40\u0e25\u0e02\u0e1b\u0e23\u0e30\u0e08\u0e33\u0e15\u0e31\u0e27 \u0e1c\u0e39\u0e49\u0e1e\u0e34\u0e01\u0e32\u0e23",
+   "options": "Disabled Person"
+  },
+  {
+   "fieldname": "support_giver",
+   "fieldtype": "Data",
+   "label": "\u0e2b\u0e19\u0e48\u0e27\u0e22\u0e07\u0e32\u0e19\u0e17\u0e35\u0e48\u0e43\u0e2b\u0e49\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d"
+  },
+  {
+   "fieldname": "support_section",
+   "fieldtype": "Section Break",
+   "label": "\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d\u0e04\u0e19\u0e1e\u0e34\u0e01\u0e32\u0e23"
+  },
+  {
+   "fetch_from": "support_receiver.firstname",
+   "fieldname": "support_receiver_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u0e0a\u0e37\u0e48\u0e2d \u0e1c\u0e39\u0e49\u0e1e\u0e34\u0e01\u0e32\u0e23"
+  },
+  {
+   "fetch_from": "support_receiver.lastname",
+   "fieldname": "support_receiver_surname",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25 \u0e1c\u0e39\u0e49\u0e1e\u0e34\u0e01\u0e32\u0e23"
+  },
+  {
+   "fieldname": "support_budget_year",
+   "fieldtype": "Data",
+   "label": "\u0e1b\u0e35\u0e07\u0e1a\u0e1b\u0e23\u0e30\u0e21\u0e32\u0e13 (\u0e1e.\u0e28.)"
+  },
+  {
+   "fieldname": "support_type_name",
+   "fieldtype": "Select",
+   "label": "\u0e1b\u0e23\u0e30\u0e40\u0e20\u0e17\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d",
+   "options": "\u0e21\u0e2d\u0e1a\u0e1a\u0e49\u0e32\u0e19\n\u0e1b\u0e23\u0e31\u0e1a\u0e2a\u0e20\u0e32\u0e1e\u0e41\u0e27\u0e14\u0e25\u0e49\u0e2d\u0e21\u0e17\u0e35\u0e48\u0e2d\u0e22\u0e39\u0e48\u0e2d\u0e32\u0e28\u0e31\u0e22",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "support_image",
+   "fieldtype": "Attach Image",
+   "label": "\u0e23\u0e39\u0e1b\u0e2b\u0e25\u0e31\u0e01\u0e10\u0e32\u0e19\u0e04\u0e27\u0e32\u0e21\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e2b\u0e25\u0e37\u0e2d"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-19 02:56:25.726679",
+ "modified_by": "Administrator",
+ "module": "Pyoldc",
+ "name": "Supports",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_preview_popup": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

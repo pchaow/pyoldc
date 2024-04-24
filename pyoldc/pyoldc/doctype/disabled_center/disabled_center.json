@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:title",
  "creation": "2024-04-18 11:05:55.217223",
@@ -8,7 +9,8 @@
  "field_order": [
   "title",
   "center_status",
-  "users"
+  "users",
+  "test"
  ],
  "fields": [
   {
@@ -20,6 +22,8 @@
   {
    "fieldname": "center_status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "\u0e2a\u0e16\u0e32\u0e19\u0e30",
    "options": "\u0e2d\u0e1b\u0e17\n\u0e23\u0e1e\u0e2a\u0e15\n\u0e2d\u0e37\u0e48\u0e19\u0e46"
   },
@@ -28,11 +32,16 @@
    "fieldtype": "Table",
    "label": "\u0e1c\u0e39\u0e49\u0e43\u0e0a\u0e49",
    "options": "Disabled Center User"
+  },
+  {
+   "fieldname": "test",
+   "fieldtype": "Color",
+   "label": "test"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-18 20:01:30.969178",
+ "modified": "2024-04-24 07:58:42.914318",
  "modified_by": "Administrator",
  "module": "Pyoldc",
  "name": "Disabled Center",
