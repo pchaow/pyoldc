@@ -10,6 +10,7 @@
   "details_tab",
   "center_section",
   "disabled_center",
+  "person_status",
   "section_break_zupk",
   "personal_number",
   "firstname",
@@ -24,6 +25,7 @@
   "birthdate",
   "card_issue_date",
   "card_expired_date",
+  "expired_in_days",
   "section_break_ifzn",
   "book_account_number",
   "column_break_osxz",
@@ -247,11 +249,27 @@
    "fieldtype": "HTML",
    "label": "card_expired_date_thai",
    "options": "<div id=\"card_expired_date_field\" >\n\n</div>"
+  },
+  {
+   "fieldname": "expired_in_days",
+   "fieldtype": "Int",
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "is_virtual": 1,
+   "label": "\u0e2d\u0e32\u0e22\u0e38\u0e1a\u0e31\u0e15\u0e23",
+   "read_only": 1
+  },
+  {
+   "default": "\u0e1b\u0e01\u0e15\u0e34",
+   "fieldname": "person_status",
+   "fieldtype": "Select",
+   "label": "\u0e2a\u0e16\u0e32\u0e19\u0e30",
+   "options": "\u0e1b\u0e01\u0e15\u0e34\n\u0e44\u0e21\u0e48\u0e21\u0e35\u0e1a\u0e31\u0e15\u0e23\u0e04\u0e19\u0e1e\u0e34\u0e01\u0e32\u0e23\n\u0e15\u0e32\u0e22\n\u0e2b\u0e32\u0e22\u0e2a\u0e32\u0e1a\u0e2a\u0e39\u0e0d\n\u0e22\u0e49\u0e32\u0e22\u0e2d\u0e2d\u0e01"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-24 12:31:49.556557",
+ "modified": "2024-05-16 09:29:32.517623",
  "modified_by": "Administrator",
  "module": "Pyoldc",
  "name": "Disabled Person",

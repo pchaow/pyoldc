@@ -11,6 +11,7 @@ frappe.ui.form.on("Disabled Person", {
 	},
 	refresh(frm) {
 
+		$(".frappe-control[data-fieldtype='HTML']").css('z-index',5)
 		$("#disabled-person-location_tab-tab").click(() => {
 			setTimeout(() => {
 				frappe.require("reactmap.bundle.jsx").then(() => {

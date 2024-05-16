@@ -54,7 +54,12 @@ function DisabledPeopleMarkers({ people, colorSet, groupType }) {
             return (
               <Marker key={p.name} position={position} icon={icon}>
                 <Popup closeButton={null}>
-                  {p.firstname} {p.lastname}
+                  <div>
+                  {p.firstname} {p.lastname} 
+                  </div>
+                  <div>
+                  หมดอายุ {p.card_expired_date}
+                  </div>
                 </Popup>
               </Marker>
             )
@@ -210,6 +215,7 @@ export function App() {
                   <select onChange={(e) => setGroupType(e.target.value)} value={groupType} type="text" autoComplete="off" className="input-with-feedback form-control ellipsis" maxLength="140" data-fieldtype="Select">
                     <option value="disabled_center">หน่วยงานที่ดูแล</option>
                     <option value="disabled_type">ประเภทความพิการ</option>
+                    <option value="expired_date_group">วันหมดอายุ</option>
                   </select>
                   <div className="select-icon ">
                     <svg className="icon icon-sm" aria-hidden="true">

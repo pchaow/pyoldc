@@ -10545,7 +10545,7 @@
           var HostPortal = 4;
           var HostComponent = 5;
           var HostText = 6;
-          var Fragment = 7;
+          var Fragment2 = 7;
           var Mode = 8;
           var ContextConsumer = 9;
           var ContextProvider = 10;
@@ -11622,7 +11622,7 @@
                 return "DehydratedFragment";
               case ForwardRef:
                 return getWrappedName$1(type, type.render, "ForwardRef");
-              case Fragment:
+              case Fragment2:
                 return "Fragment";
               case HostComponent:
                 return type;
@@ -20987,7 +20987,7 @@
               }
             }
             function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-              if (current2 === null || current2.tag !== Fragment) {
+              if (current2 === null || current2.tag !== Fragment2) {
                 var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
                 created.return = returnFiber;
                 return created;
@@ -21389,7 +21389,7 @@
                 if (child.key === key) {
                   var elementType = element.type;
                   if (elementType === REACT_FRAGMENT_TYPE) {
-                    if (child.tag === Fragment) {
+                    if (child.tag === Fragment2) {
                       deleteRemainingChildren(returnFiber, child.sibling);
                       var existing = useFiber(child, element.props.children);
                       existing.return = returnFiber;
@@ -25495,7 +25495,7 @@
                 var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
                 return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
               }
-              case Fragment:
+              case Fragment2:
                 return updateFragment(current2, workInProgress2, renderLanes2);
               case Mode:
                 return updateMode(current2, workInProgress2, renderLanes2);
@@ -25767,7 +25767,7 @@
               case SimpleMemoComponent:
               case FunctionComponent:
               case ForwardRef:
-              case Fragment:
+              case Fragment2:
               case Mode:
               case Profiler:
               case ContextConsumer:
@@ -29981,7 +29981,7 @@
             return fiber;
           }
           function createFiberFromFragment(elements, mode, lanes, key) {
-            var fiber = createFiber(Fragment, elements, key, mode);
+            var fiber = createFiber(Fragment2, elements, key, mode);
             fiber.lanes = lanes;
             return fiber;
           }
@@ -31425,7 +31425,7 @@
           var ContextProvider = REACT_PROVIDER_TYPE;
           var Element2 = REACT_ELEMENT_TYPE;
           var ForwardRef = REACT_FORWARD_REF_TYPE;
-          var Fragment = REACT_FRAGMENT_TYPE;
+          var Fragment2 = REACT_FRAGMENT_TYPE;
           var Lazy = REACT_LAZY_TYPE;
           var Memo = REACT_MEMO_TYPE;
           var Portal = REACT_PORTAL_TYPE;
@@ -31484,7 +31484,7 @@
           exports.ContextProvider = ContextProvider;
           exports.Element = Element2;
           exports.ForwardRef = ForwardRef;
-          exports.Fragment = Fragment;
+          exports.Fragment = Fragment2;
           exports.Lazy = Lazy;
           exports.Memo = Memo;
           exports.Portal = Portal;
@@ -52833,9 +52833,8 @@
   });
 
   // ../pyoldc/pyoldc/public/js/reactmap/App.jsx
-  function DraggableMarker({ frm, field, center }) {
+  function DraggableMarker({ frm, field, center, position, setPosition }) {
     const [draggable, setDraggable] = React3.useState(true);
-    const [position, setPosition] = React3.useState(center);
     const map = useMap();
     React3.useEffect(function() {
       console.log(frm);
@@ -52875,7 +52874,7 @@
     });
   }
   function App({ frm, field }) {
-    const [position, setPosition] = React3.useState([19.171, 99.9067]);
+    const [center, setCenter] = React3.useState([19.171, 99.9067]);
     const [style, setStyle] = React3.useState({ width: "99%", height: "99%" });
     React3.useEffect(function() {
       let fieldValue = frm.get_field("geojson_position").get_value();
@@ -52889,8 +52888,11 @@
         }
       }
     }, [frm, field]);
-    return /* @__PURE__ */ React3.createElement(MapContainer, {
-      center: position,
+    const [position, setPosition] = React3.useState(center);
+    return /* @__PURE__ */ React3.createElement(React3.Fragment, null, /* @__PURE__ */ React3.createElement("button", {
+      onClick: () => setPosition(center)
+    }, "click "), /* @__PURE__ */ React3.createElement(MapContainer, {
+      center,
       zoom: 13,
       scrollWheelZoom: true,
       style
@@ -52900,8 +52902,10 @@
     }), /* @__PURE__ */ React3.createElement(DraggableMarker, {
       frm,
       field,
-      center: position
-    }));
+      center,
+      position,
+      setPosition
+    })));
   }
 
   // ../pyoldc/pyoldc/public/js/reactmap/CustomDatePicker.jsx
@@ -53028,7 +53032,7 @@
         var ContextProvider = REACT_PROVIDER_TYPE;
         var Element2 = REACT_ELEMENT_TYPE;
         var ForwardRef = REACT_FORWARD_REF_TYPE;
-        var Fragment = REACT_FRAGMENT_TYPE;
+        var Fragment2 = REACT_FRAGMENT_TYPE;
         var Lazy = REACT_LAZY_TYPE;
         var Memo = REACT_MEMO_TYPE;
         var Portal = REACT_PORTAL_TYPE;
@@ -53087,7 +53091,7 @@
         exports.ContextProvider = ContextProvider;
         exports.Element = Element2;
         exports.ForwardRef = ForwardRef;
-        exports.Fragment = Fragment;
+        exports.Fragment = Fragment2;
         exports.Lazy = Lazy;
         exports.Memo = Memo;
         exports.Portal = Portal;
@@ -54565,4 +54569,4 @@ object-assign
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-//# sourceMappingURL=reactmap.bundle.WPSL4R6L.js.map
+//# sourceMappingURL=reactmap.bundle.OLA5XJDZ.js.map
