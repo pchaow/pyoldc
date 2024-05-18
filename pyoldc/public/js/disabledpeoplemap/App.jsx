@@ -11,7 +11,7 @@ const colorPallet = { 'dimgray': '#696969', 'darkgray': '#a9a9a9', 'lightgray': 
 const colorArrays = ["#6b8e23", "#87ceeb", "#00008b", "#ff69b4", "#bc8f8f", "#008080", "#8b4513", "#3cb371", "#2e8b57", "#00ff7f", "#ff8c00", "#4169e1", "#00ffff", "#adff2f", "#4b0082", "#da70d6", "#66cdaa", "#0000cd", "#ffa500", "#ff1493", "#7fff00", "#5f9ea0", "#cd5c5c", "#32cd32", "#9acd32", "#2f4f4f", "#d2691e", "#c71585", "#8b008b", "#9400d3", "#00fa9a", "#ff4500", "#556b2f", "#dc143c", "#696969", "#a9a9a9", "#ffff54", "#483d8b", "#ffc0cb", "#ffd700", "#b8860b", "#bdb76b", "#00ff00", "#4682b4", "#9370db", "#d8bfd8", "#ff7f50", "#dda0dd", "#b0c4de", "#006400", "#ba55d3", "#8fbc8f", "#b22222", "#b03060", "#90ee90",
   "#800000", "#20b2aa", "#663399", "#d3d3d3", "#0000ff", "#00bfff", "#808000", "#f0e68c", "#191970", "#008000", "#ffff00", "#9932cc", "#40e0d0",
   "#db7093", "#7fffd4", "#afeeee", "#f5deb3", "#7b68ee", "#f4a460", "#d2b48c", "#fa8072", "#778899", "#ffa07a", "#6495ed", "#ff00ff"]
-console.log('--',colorArrays)
+console.log(colorArrays)
 function DisabledPeopleMarkers({ people, colorSet, groupType }) {
 
   const getIcon = function (p) {
