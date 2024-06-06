@@ -26,6 +26,7 @@
   "card_issue_date",
   "card_expired_date",
   "expired_in_days",
+  "testdate",
   "section_break_ifzn",
   "book_account_number",
   "column_break_osxz",
@@ -86,20 +87,17 @@
   {
    "fieldname": "birthdate",
    "fieldtype": "Date",
-   "label": "\u0e27\u0e31\u0e19-\u0e40\u0e14\u0e37\u0e2d\u0e19-\u0e1b\u0e35 \u0e40\u0e01\u0e34\u0e14 (\u0e04.\u0e28.)",
-   "read_only": 1
+   "label": "\u0e27\u0e31\u0e19-\u0e40\u0e14\u0e37\u0e2d\u0e19-\u0e1b\u0e35 \u0e40\u0e01\u0e34\u0e14 (\u0e04.\u0e28.)"
   },
   {
    "fieldname": "card_issue_date",
    "fieldtype": "Date",
-   "label": "\u0e27\u0e31\u0e19\u0e2d\u0e2d\u0e01\u0e1a\u0e31\u0e15\u0e23 (\u0e04.\u0e28.)",
-   "read_only": 1
+   "label": "\u0e27\u0e31\u0e19\u0e2d\u0e2d\u0e01\u0e1a\u0e31\u0e15\u0e23 (\u0e04.\u0e28.)"
   },
   {
    "fieldname": "card_expired_date",
    "fieldtype": "Date",
-   "label": "\u0e27\u0e31\u0e19\u0e1a\u0e31\u0e15\u0e23\u0e2b\u0e21\u0e14\u0e2d\u0e32\u0e22\u0e38 (\u0e04.\u0e28.)",
-   "read_only": 1
+   "label": "\u0e27\u0e31\u0e19\u0e1a\u0e31\u0e15\u0e23\u0e2b\u0e21\u0e14\u0e2d\u0e32\u0e22\u0e38 (\u0e04.\u0e28.)"
   },
   {
    "fieldname": "disabled_card",
@@ -215,7 +213,9 @@
   {
    "fieldname": "geojson_position",
    "fieldtype": "JSON",
-   "label": "geojson_position"
+   "ignore_user_permissions": 1,
+   "label": "geojson_position",
+   "report_hide": 1
   },
   {
    "fieldname": "react_app",
@@ -231,7 +231,7 @@
   {
    "fieldname": "birthdate_thai",
    "fieldtype": "HTML",
-   "label": "birthdate_thai",
+   "label": "\u0e01\u0e23\u0e2d\u0e01\u0e27\u0e31\u0e19\u0e40\u0e14\u0e37\u0e2d\u0e19\u0e1b\u0e35\u0e40\u0e01\u0e34\u0e14",
    "options": "<div id=\"birthdate_thai_field\" >\n\n</div>"
   },
   {
@@ -265,11 +265,16 @@
    "fieldtype": "Select",
    "label": "\u0e2a\u0e16\u0e32\u0e19\u0e30",
    "options": "\u0e1b\u0e01\u0e15\u0e34\n\u0e44\u0e21\u0e48\u0e21\u0e35\u0e1a\u0e31\u0e15\u0e23\u0e04\u0e19\u0e1e\u0e34\u0e01\u0e32\u0e23\n\u0e15\u0e32\u0e22\n\u0e2b\u0e32\u0e22\u0e2a\u0e32\u0e1a\u0e2a\u0e39\u0e0d\n\u0e22\u0e49\u0e32\u0e22\u0e2d\u0e2d\u0e01"
+  },
+  {
+   "fieldname": "testdate",
+   "fieldtype": "Button",
+   "label": "date"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-16 09:29:32.517623",
+ "modified": "2024-05-31 11:43:12.085822",
  "modified_by": "Administrator",
  "module": "Pyoldc",
  "name": "Disabled Person",

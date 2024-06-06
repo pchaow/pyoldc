@@ -45,15 +45,27 @@ class DisabledPerson(Document):
 
         from datetime import datetime, date
         import math
-        
-        if (self.card_expired_date) :
+        from frappe.utils import getdate
 
-            exp_date_str = self.card_expired_date
-            exp_date = exp_date_str
-            cur_date = date.today()
-            diff_date = (exp_date - cur_date).days
-            return diff_date
-        else :
+        try :
+            if (self.card_expired_date) :
+                
+                if (type(self.card_expired_date) is str) :
+                    exp_date = getdate(self.card_expired_date)
+                    exp_date = self.card_expired_date
+                    cur_date = date.today()
+                    diff_date = (exp_date - cur_date).days
+                    return diff_date
+                    pass
+                else :
+
+                    exp_date = self.card_expired_date
+                    cur_date = date.today()
+                    diff_date = (exp_date - cur_date).days
+                    return diff_date
+            else :
+                return 0
+        except :
             return 0
 
     pass

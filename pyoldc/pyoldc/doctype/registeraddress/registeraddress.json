@@ -1,0 +1,183 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2024-05-18 13:59:32.643176",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "register_address_owner",
+  "fullname",
+  "birthdate",
+  "register_address_owner_identification_number",
+  "column_break_pwni",
+  "tel",
+  "register_address_owner_ethnicity",
+  "register_address_owner_nationality",
+  "register_address",
+  "column_break_register_address_no",
+  "register_address_no",
+  "column_break_register_address_moo",
+  "register_address_moo",
+  "column_break_register_address_soi",
+  "register_address_soi",
+  "column_break_register_address_road",
+  "register_address_road",
+  "section_break_wvcl",
+  "column_break_register_address_province",
+  "register_address_province",
+  "column_break_register_address_amphur",
+  "register_address_amphur",
+  "column_break_register_address_district",
+  "register_address_district"
+ ],
+ "fields": [
+  {
+   "fieldname": "register_address",
+   "fieldtype": "Section Break",
+   "label": "\u0e17\u0e35\u0e48\u0e2d\u0e22\u0e39\u0e48"
+  },
+  {
+   "fieldname": "section_break_wvcl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "register_address_no",
+   "fieldtype": "Data",
+   "label": "\u0e40\u0e25\u0e02\u0e17\u0e35\u0e48"
+  },
+  {
+   "fieldname": "register_address_moo",
+   "fieldtype": "Data",
+   "label": "\u0e2b\u0e21\u0e39\u0e48"
+  },
+  {
+   "fieldname": "register_address_soi",
+   "fieldtype": "Data",
+   "label": "\u0e15\u0e23\u0e2d\u0e01/\u0e0b\u0e2d\u0e22"
+  },
+  {
+   "fieldname": "register_address_road",
+   "fieldtype": "Data",
+   "label": "\u0e16\u0e19\u0e19"
+  },
+  {
+   "fieldname": "register_address_province",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "\u0e08\u0e31\u0e07\u0e2b\u0e27\u0e31\u0e14",
+   "options": "Province",
+   "reqd": 1
+  },
+  {
+   "fieldname": "register_address_amphur",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "\u0e2d\u0e33\u0e40\u0e20\u0e2d",
+   "options": "Amphure",
+   "reqd": 1
+  },
+  {
+   "fieldname": "register_address_district",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "\u0e15\u0e33\u0e1a\u0e25",
+   "options": "Tambon",
+   "reqd": 1
+  },
+  {
+   "fieldname": "register_address_owner",
+   "fieldtype": "Section Break",
+   "label": "\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e40\u0e08\u0e49\u0e32\u0e02\u0e2d\u0e07\u0e17\u0e35\u0e48"
+  },
+  {
+   "fieldname": "register_address_owner_nationality",
+   "fieldtype": "Data",
+   "label": "\u0e2a\u0e31\u0e0d\u0e0a\u0e32\u0e15\u0e34"
+  },
+  {
+   "fieldname": "register_address_owner_ethnicity",
+   "fieldtype": "Data",
+   "label": "\u0e40\u0e0a\u0e37\u0e49\u0e2d\u0e0a\u0e32\u0e15\u0e34"
+  },
+  {
+   "fieldname": "register_address_owner_identification_number",
+   "fieldtype": "Data",
+   "label": "\u0e2b\u0e21\u0e32\u0e22\u0e40\u0e25\u0e02\u0e1b\u0e23\u0e30\u0e08\u0e33\u0e15\u0e31\u0e27\u0e1b\u0e23\u0e30\u0e0a\u0e32\u0e0a\u0e19",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_register_address_no",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_register_address_moo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_register_address_soi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_register_address_road",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_register_address_province",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_register_address_amphur",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_register_address_district",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_pwni",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fullname",
+   "fieldtype": "Data",
+   "label": "\u0e0a\u0e37\u0e48\u0e2d-\u0e19\u0e32\u0e21\u0e2a\u0e01\u0e38\u0e25",
+   "reqd": 1
+  },
+  {
+   "fieldname": "birthdate",
+   "fieldtype": "Date",
+   "label": "\u0e27\u0e31\u0e19\u0e40\u0e14\u0e37\u0e2d\u0e19\u0e1b\u0e35\u0e40\u0e01\u0e34\u0e14"
+  },
+  {
+   "fieldname": "tel",
+   "fieldtype": "Data",
+   "label": "\u0e40\u0e1a\u0e2d\u0e23\u0e4c\u0e42\u0e17\u0e23\u0e28\u0e31\u0e1e\u0e17\u0e4c"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-18 18:57:25.248381",
+ "modified_by": "Administrator",
+ "module": "Pyoldc",
+ "name": "RegisterAddress",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
