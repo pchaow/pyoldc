@@ -1,7 +1,7 @@
 # Copyright (c) 2024, up.ac.th and contributors
 # For license information, please see license.txt
 
-# import frappe
+import frappe
 from frappe.model.document import Document
 
 
@@ -23,3 +23,11 @@ class DisabledCenter(Document):
 	# end: auto-generated types
 
 	pass
+
+@frappe.whitelist()
+def get_disabled_center_lsit():
+
+    query = frappe.qb.from_('Disabled Center').select('title')
+    result = query.run(as_dict=True)
+
+    return result
