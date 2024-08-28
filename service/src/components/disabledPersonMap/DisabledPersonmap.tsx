@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Button } from '@nextui-org/react';
+import { Button, Card, CardBody } from '@nextui-org/react';
 
 
 function DraggableMarker({ position, setPosition, data, onPositionChange }) {
@@ -15,7 +15,7 @@ function DraggableMarker({ position, setPosition, data, onPositionChange }) {
             setPosition([newPosition.lat, newPosition.lng]);
             onPositionChange([newPosition.lat, newPosition.lng]);
         },
-        
+
     };
 
     const buttonStyle = {
@@ -62,9 +62,23 @@ function Map(props) {
         console.log('Initial position:', geojsonPosition);
     }, [geojsonPosition]);
 
-    
+
     return (
         <div>
+
+            <div className="flex justify-center">
+                <div className="max-w-[62.5%] w-full">
+                    <section className="border-solid border-2 rounded-lg shadow p-8 mb-8 mt-8 bg-white">
+                        <p>พิกัด</p>
+                        <p>ชื่อสถานที่ หรือ เลขพิกัด</p>
+                        <Card className='mt-5 mb-2'>
+                            <CardBody>
+                                <p>{position[0].toFixed(15)}, {position[1].toFixed(15)} </p>
+                            </CardBody>
+                        </Card>
+                    </section>
+                </div>
+            </div>
             <MapContainer center={position} zoom={13} scrollWheelZoom={true} style={style}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

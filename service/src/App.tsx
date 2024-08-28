@@ -6,14 +6,14 @@ import Login from './pages/Login';
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard';
 import MainPage from './pages/MainPage';
-import DisabledPersonCreate from './pages/DisabledPeopleServices/DisabledPersonCreate.tsx'
-import DisabledPersonEdit from './pages/DisabledPeopleServices/DisabledPersonEdit.tsx'
-import DisabledPersonIndex from './pages/DisabledPeopleServices/DisabledPersonIndex.tsx'
+import DisabledPersonCreate from './pages/disabledPeopleServices/DisabledPersonCreate.tsx'
+import DisabledPersonEdit from './pages/disabledPeopleServices/DisabledPersonEdit.tsx'
+import DisabledPersonIndex from './pages/disabledPeopleServices/DisabledPersonIndex.tsx'
 import AlertProvider from './providers/AlertProvider';
 import AuthProvider from './providers/AuthProvider';
-import SupportIndex from './pages/DisabledPeopleServices/DisabledPersonSupportIndex.tsx';
-import SupportEdit from './pages/DisabledPeopleServices/DisabledPersonSupportEdit.tsx';
-import SupportCreate from './pages/DisabledPeopleServices/DisabledPersonSupportCreate.tsx';
+import SupportIndex from './pages/disabledPeopleServices/DisabledPersonSupportIndex.tsx';
+import SupportEdit from './pages/disabledPeopleServices/DisabledPersonSupportEdit.tsx';
+import SupportCreate from './pages/disabledPeopleServices/DisabledPersonSupportCreate.tsx';
 
 
 function App() {

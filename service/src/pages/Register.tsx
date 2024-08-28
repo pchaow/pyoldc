@@ -10,7 +10,6 @@ export interface RegisterFormData {
     email: string;
     password: string;
     verify_password: string;
-    // mobile_no: string;
     first_name: string
     last_name: string
 }
@@ -83,64 +82,71 @@ function register() {
 
 
     return (
-        <div className="flex flex-col min-h-screen md:flex-row">
-            <div className="w-1/2" style={{ backgroundImage: `url(${background})` }}>
-                <Image className="mt-16 ml-14" src={logo} />
-            </div>
-            <div className="w-1/2 flex items-center justify-center p-20">
-                <div className="w-full">
-                    <div className="text-left">
-                        <p className="mb-1 font-bold text-4xl">สมัครสมาชิก</p>
-                        <span className="text-gray-400 font-medium text-base">สวัสดี, มาสร้างบัญชีของคุณ.</span>
-                    </div>
-                    <div className="mt-7 mb-5 text-left">
-                        <p className="mb-2 font-medium text-sm">อีเมล์</p>
-                        <Input isRequired variant="bordered" radius="sm" type="email" placeholder="กรุณาใส่อีเมล์" name="email"
-                            isInvalid={!!(error?.email)} errorMessage={error?.email}
-                            value={credential.email} onValueChange={(value) => handleCredential('email', value)} />
-                    </div>
-                    <div className="mb-5 text-left">
-                        <p className="mb-2 font-medium text-sm">รหัสผ่าน</p>
-                        <Input isRequired variant="bordered" radius="sm" type="password" placeholder="กรุณาใส่รหัสผ่าน" name="password"
-                            onSubmit={doRegister} isInvalid={!!(error?.password)} errorMessage={error?.password}
-                            defaultValue={credential.password} onValueChange={(value) => handleCredential('password', value)} />
-                    </div>
-                    <div className="mb-5 text-left">
-                        <p className="mb-2 font-medium text-sm">ยืนยันรหัสผ่าน</p>
-                        <Input isRequired variant="bordered" radius="sm" type="password" placeholder="กรุณายืนยันรหัสผ่าน" name="verify_password"
-                            onSubmit={doRegister} isInvalid={!!(error?.verify_password)} errorMessage={error?.verify_password}
-                            defaultValue={credential.password} onValueChange={(value) => handleCredential('verify_password', value)} />
-                    </div>
-                    <div className="mb-5 text-left">
-                        <p className="mb-2 font-medium text-sm">ชื่อ</p>
-                        <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรุณาใส่ชื่อ" name="first_name"
-                            onSubmit={doRegister} isInvalid={!!(error?.first_name)} errorMessage={error?.first_name}
-                            defaultValue={credential.password} onValueChange={(value) => handleCredential('first_name', value)} />
-                    </div>
-                    <div className="mb-5 text-left">
-                        <p className="mb-2 font-medium text-sm">นามสกุล</p>
-                        <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรุณาใส่นามสกุล" name="last_name"
-                            onSubmit={doRegister} isInvalid={!!(error?.last_name)} errorMessage={error?.last_name}
-                            defaultValue={credential.password} onValueChange={(value) => handleCredential('last_name', value)} />
-                    </div>
-                    {/* <div className="mb-10 text-left">
-                        <p className="mb-2 font-medium text-sm">Citizens id</p>
-                        <Input
-                            isRequired
-                            variant="bordered"
-                            radius="sm"
-                            type="password"
-                            placeholder="Enter youe Citizens id" />
-                    </div> */}
-                    <Button type="submit" isLoading={isLoading} onClick={doRegister} radius="sm" className="w-full my-2 bg-pink-500 text-white text-sm font-semibold">
-                        ลงทะเบียน
-                    </Button>
-                    <Button type="submit" isLoading={isLoading} onClick={() => { navigate("/login") }} radius="sm" className="w-full my-2 text-white text-sm font-semibold">
-                        ย้อนกลับ
-                    </Button>
+        <section className="flex flex-col md:flex-row min-h-screen">
+            {/* Right column container */}
+            <div className="flex-1 bg-cover bg-center" style={{ backgroundImage: `url(${background})` }}>
+                <div className="flex items-center justify-center w-full h-full">
+                    <Image src={logo} alt="Logo" className="w-3/4 lg:w-1/2 mx-auto" />
                 </div>
             </div>
-        </div>
+
+            {/* <!-- Left column container--> */}
+            <div className="flex-1 flex items-center justify-center p-4 md:p-12">
+                <div className="w-full max-w-md">
+                    <form>
+                        <div className="mb-6">
+                                    <p className="text-2xl font-semibold mb-2 text-left">สมัครสมาชิก</p>
+                                    <p className="text-left">สวัสดี, สร้างบัญชีของคุณ.</p>
+                                </div>
+
+                        <div className="columns-2 mb-2 ">
+                            <div className="text-left">
+                                <p className="mb-1">ชื่อ</p>
+                                <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรุณาใส่ชื่อ" name="first_name"
+                                    onSubmit={doRegister} isInvalid={!!(error?.first_name)} errorMessage={error?.first_name}
+                                    defaultValue={credential.password} onValueChange={(value) => handleCredential('first_name', value)} />
+                            </div>
+
+                            <div className="text-left">
+                                <p className="mb-1">นามสกุล</p>
+                                <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรุณาใส่นามสกุล" name="last_name"
+                                    onSubmit={doRegister} isInvalid={!!(error?.last_name)} errorMessage={error?.last_name}
+                                    defaultValue={credential.password} onValueChange={(value) => handleCredential('last_name', value)} />
+                            </div>
+                        </div>
+                        <div className="mb-2 text-left">
+                            <p className="mb-1">เลขประจำตัวประชาชน</p>
+                            <Input isRequired variant="bordered" radius="sm" type="email" placeholder="กรุณาเลขประจำตัวประชาชน" name="email" />
+                        </div>
+
+                        <div className="mb-2 text-left">
+                            <p className="mb-1">อีเมล์</p>
+                            <Input isRequired variant="bordered" radius="sm" type="email" placeholder="กรุณาใส่อีเมล์" name="email"
+                                isInvalid={!!(error?.email)} errorMessage={error?.email}
+                                value={credential.email} onValueChange={(value) => handleCredential('email', value)} />
+                        </div>
+
+                        <div className="mb-2 text-left">
+                            <p className="mb-1">รหัสผ่าน</p>
+                            <Input isRequired variant="bordered" radius="sm" type="password" placeholder="กรุณาใส่รหัสผ่าน" name="password"
+                                onSubmit={doRegister} isInvalid={!!(error?.password)} errorMessage={error?.password}
+                                defaultValue={credential.password} onValueChange={(value) => handleCredential('password', value)} />
+                        </div>
+
+                        <div className="mb-2 text-left">
+                            <p className="mb-1">ยืนยันรหัสผ่าน</p>
+                            <Input isRequired variant="bordered" radius="sm" type="password" placeholder="กรุณายืนยันรหัสผ่าน" name="verify_password"
+                                onSubmit={doRegister} isInvalid={!!(error?.verify_password)} errorMessage={error?.verify_password}
+                                defaultValue={credential.password} onValueChange={(value) => handleCredential('verify_password', value)} />
+                        </div>
+
+                        <Button type="submit" isLoading={isLoading} onClick={doRegister} radius="sm" className="w-full my-2 bg-pink-500 text-white text-sm font-semibold">
+                            ลงทะเบียน
+                        </Button>
+                    </form>
+                </div>
+            </div>
+        </section >
     )
 }
 

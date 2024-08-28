@@ -143,3 +143,8 @@ def upload_image():
     disabled_person.save()
 
     return disabled_person
+
+@frappe.whitelist()
+def count_supports():
+    total = frappe.db.count('Supports')
+    return total

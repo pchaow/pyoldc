@@ -217,7 +217,7 @@ def create_disabled_person():
     d.guardian_card = req['guardian_card'].strip()
     d.guardian_book_account = req['guardian_book_account'].strip()
 
-    # d.geojson_position= req['geojson_position'].strip()
+    d.geojson_position = req['geojson_position'].strip()
 
     d.manager = frappe.session.user
 
@@ -288,3 +288,16 @@ def disabled_people_map():
             i['expired_date_group'] = 'หมดอายุ'
 
     return x
+
+
+@frappe.whitelist()
+def count_registertaion_disabled_persons():
+    total = frappe.db.count('Disabled Person', {'person_status': 'ปกติ'})
+    return total
+
+
+@frappe.whitelist()
+def count_not_registertaion_disabled_persons():
+    total = frappe.db.count(
+        'Disabled Person', {'person_status': 'ไม่มีบัตรคนพิการ'})
+    return total

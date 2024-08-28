@@ -37,10 +37,13 @@ function AppNavbar() {
 
 
     return (
-        <Navbar isBordered maxWidth="full" classNames={{ wrapper: "p-1 md:p-6" }} style={{ backgroundImage: `url(${background})` }}>
+        <Navbar isBordered maxWidth="full" classNames={{ wrapper: "px- md:p-6" }} style={{ backgroundImage: `url(${background})` }}>
             <AppNavbarBrand />
 
             <NavbarContent justify="end">
+                <NavbarItem>
+                    {auth.currentUser}
+                </NavbarItem>
                 <Skeleton isLoaded={!auth.isLoading} className="rounded-full">
                     <NavbarItem>
                         {auth.currentUser ? (
@@ -70,15 +73,6 @@ function AppNavbar() {
                         )}
                     </NavbarItem>
                 </Skeleton>
-                <NavbarItem>
-                    {auth.currentUser}
-                </NavbarItem>
-                <NavbarItem>
-                    <FaBell className="text-pink-600" fontSize="1.5em" />
-                </NavbarItem>
-                <NavbarItem>
-                    <FaMessage className="text-pink-600" fontSize="1.3em" />
-                </NavbarItem>
             </NavbarContent>
         </Navbar>
     );
@@ -89,12 +83,9 @@ function MainPage() {
 
 
     return (
-        <div>
+        <div className="font-customFont">
             <AppNavbar />
             <div className="flex px-1 lg:px-0 lg:justify-center w-full">
-                <div className="mb-3 lg:mb-0 lg:w-[280px] md:mb-0 md:w-[280px] w-full">
-                    <SidebarMenu />
-                </div>
                 <div className="lg:pl-3 lg:ml-3 p-5 lg:w-full  lg:min-h-[600px] md:w-full">
                     <Outlet />
                 </div>
