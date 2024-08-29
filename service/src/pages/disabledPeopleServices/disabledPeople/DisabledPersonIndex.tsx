@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { FrappeConfig, FrappeContext, useSWR } from "frappe-react-sdk";
 import { BreadcrumbItem, Breadcrumbs, Skeleton } from "@nextui-org/react";
 import { useNavigate } from "react-router-dom";
-import TableData from "../../components/tableData/TableData";
+import TableData from "../../../components/tableData/TableData";
 
 const INITIAL_VISIBLE_COLUMNS = [
   "personal_number",

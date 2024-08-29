@@ -6,14 +6,15 @@ import Login from './pages/Login';
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard';
 import MainPage from './pages/MainPage';
-import DisabledPersonCreate from './pages/disabledPeopleServices/DisabledPersonCreate.tsx'
-import DisabledPersonEdit from './pages/disabledPeopleServices/DisabledPersonEdit.tsx'
-import DisabledPersonIndex from './pages/disabledPeopleServices/DisabledPersonIndex.tsx'
+import DisabledPersonCreate from './pages/disabledPeopleServices/disabledPeople/DisabledPersonCreate.tsx'
+import DisabledPersonEdit from './pages/disabledPeopleServices/disabledPeople/DisabledPersonEdit.tsx'
+import DisabledPersonIndex from './pages/disabledPeopleServices/disabledPeople/DisabledPersonIndex.tsx'
 import AlertProvider from './providers/AlertProvider';
 import AuthProvider from './providers/AuthProvider';
-import SupportIndex from './pages/disabledPeopleServices/DisabledPersonSupportIndex.tsx';
-import SupportEdit from './pages/disabledPeopleServices/DisabledPersonSupportEdit.tsx';
-import SupportCreate from './pages/disabledPeopleServices/DisabledPersonSupportCreate.tsx';
+import SupportIndex from './pages/disabledPeopleServices/disabledPersonSupport/DisabledPersonSupportIndex.tsx';
+import SupportEdit from './pages/disabledPeopleServices/disabledPersonSupport/DisabledPersonSupportEdit.tsx';
+import SupportCreate from './pages/disabledPeopleServices/disabledPersonSupport/DisabledPersonSupportCreate.tsx';
+import DisabledPersonData from './pages/disabledPeopleServices/disabledPeople/DisabledPersomData.tsx';
 
 
 function App() {
@@ -55,10 +56,12 @@ function App() {
                                     <Route path="/" element={<LoginGuard><MainPage /></LoginGuard>} >
                                         <Route index element={<Dashboard />} />
 
-                                        <Route path="disabledperson">DisabledPerson
+                                        <Route path="disabledperson">
                                             <Route index element={<DisabledPersonIndex />} />
                                             <Route path='create' element={<DisabledPersonCreate />} />
                                             <Route path='edit/:id' element={<DisabledPersonEdit />} />
+
+                                            <Route path='data/:id' element={<DisabledPersonData />} />
 
                                             <Route path="support">
                                                 <Route index element={<SupportIndex />} />

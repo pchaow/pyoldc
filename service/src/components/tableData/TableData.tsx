@@ -116,7 +116,7 @@ export default function TableData({ columns, users, statusOptions, INITIAL_VISIB
                         <div className="relative flex justify-start items-center gap-2">
                             <Tooltip placement="top" content="แก้ไข">
                                 <span className="text-lg cursor-pointer active:opacity-50"
-                                    onClick={() => { navigate(`/disabledperson/edit/${user.personal_number}`) }} >
+                                    onClick={() => { navigate(`/disabledperson/data/${user.personal_number}`) }} >
                                     <EditIcon />
                                 </span>
                             </Tooltip>

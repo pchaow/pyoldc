@@ -1,47 +1,48 @@
-import { Button, Breadcrumbs, BreadcrumbItem, Skeleton, } from "@nextui-org/react"
-import { FrappeConfig, FrappeContext } from "frappe-react-sdk"
+import { Button, Breadcrumbs, BreadcrumbItem, } from "@nextui-org/react"
+import { IPeople } from "../../../interfaces";
 import { useContext, useEffect, useState } from "react"
-import { IPeople } from "../../interfaces"
-import { useNavigate } from "react-router-dom"
-import { Key } from "@react-types/shared";
-import DisabledPersonFrom from "../../components/from/DisabledPersonFrom"
+import { useNavigate, useParams } from "react-router-dom";
+import { FrappeConfig, FrappeContext } from "frappe-react-sdk";
+import { useAlertContext } from "../../../providers/AlertProvider";
+import DisabledPersonFrom from "../../../components/from/DisabledPersonFrom";
 
 
-function DisabledPersonCreate() {
+function DisabledPersonEdit() {
 
     const { call } = useContext(FrappeContext) as FrappeConfig
 
-    const [createForm, setCreateForm] = useState({
-        disabled_center: "",
-        card_expired_date: "",
-        card_issue_date: "",
-        book_account_bank: "",
-        book_account_number: "",
-        guardian_firstname: "",
-        guardian_lastname: "",
-        guardian_account_bank: "",
-        guardian_account_number: "",
-        guardian_address: "",
-        disabled_card: "",
-        disabled_house_register: "",
-        disabled_book_account: "",
-        guardian_card: "",
-        guardian_book_account: "",
-    } as IPeople)
+    const params = useParams()
 
-    const updateForm = (key: string, value: Key) => {
-        console.log('updateform', key, value)
+    const loadDisabledPeople = async () => {
+        let response = await call.get("pyoldc.pyoldc.doctype.disabled_person.disabled_person.get_disabled_person_by_personal_number", {
+            personal_number: params.id
+        })
+        let disabledPeople: IPeople = response.message
+
+        setCreateForm(disabledPeople)
+        console.log(disabledPeople)
+        return disabledPeople
+    }
+
+    const [createForm, setCreateForm] = useState({} as IPeople)
+
+
+    useEffect(() => {
+        setIsLoading(true)
+        loadDisabledPeople().then(() => {
+            setIsLoading(false)
+
+        })
+
+    }, [])
+
+    const updateForm = (key: string, value: string) => {
         setCreateForm({
             ...createForm,
             [key]: value
         })
-    }
 
-    const [loading, setIsLoading] = useState(true)
-    useEffect(() => {
-        setIsLoading(false)
-    }, []
-    )
+    }
 
     const [error, setError] = useState({} as IPeople);
 
@@ -84,23 +85,34 @@ function DisabledPersonCreate() {
         return !hasError;
     }
 
-
     const navigate = useNavigate()
+    const alert = useAlertContext()
+    const [loading, setIsLoading] = useState(true)
     const submit = async () => {
         console.log(createForm)
         let isValid = true
-
         //validate()
+        setIsLoading(true)
+
         if (isValid) {
             try {
-                let result = await call.post("pyoldc.pyoldc.doctype.disabled_person.disabled_person.create_disabled_person", createForm)
+                console.log(createForm)
+                let result = await call.put("pyoldc.pyoldc.doctype.disabled_person.disabled_person.update_disabled_person", {
+                    'disabled_person': createForm
+                })
                 console.log('submit result', result)
+                setCreateForm(result.message)
 
-                navigate("/disabledperson")
+                loadDisabledPeople().then(() => setIsLoading(false))
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
             } catch (error) {
-                console.log(error)
+                console.log("error", error)
+                alert.showError(JSON.stringify(error))
             }
+
         }
+        setIsLoading(false)
     }
 
 
@@ -109,11 +121,11 @@ function DisabledPersonCreate() {
             <Breadcrumbs className="mb-5">
                 <BreadcrumbItem onClick={() => { navigate(`/`) }}>หน้าหลัก</BreadcrumbItem>
                 <BreadcrumbItem onClick={() => { navigate(`/disabledPerson`) }}>ข้อมูลผู้พิการ</BreadcrumbItem>
-                <BreadcrumbItem>ลงทะเบียนผู้พิการ</BreadcrumbItem>
+                <BreadcrumbItem>แก้ไขข้อมูลผู้พิการ</BreadcrumbItem>
             </Breadcrumbs>
             <div className="mb-1">
-                <p className="mb-2 text-2xl font-medium">ลงทะเบียนผู้พิการ</p>
-                <p className="text-gray-500">ลงทะเบียนผู้พิการ</p>
+                <p className="mb-2 text-2xl font-medium">ข้อมูลทั่วไป</p>
+                <p className="text-gray-500">ข้อมูลทั้งหมดของคุณ {createForm.firstname} {createForm.lastname} </p>
             </div>
 
             <DisabledPersonFrom
@@ -126,20 +138,20 @@ function DisabledPersonCreate() {
                 <div className="max-w-[62.5%] w-full">
                     <div className="flex justify-end mr-3">
                         <div className="mx-1">
-                            <Button onClick={() => navigate('/disabledperson')}>
+                            <Button isLoading={loading} onClick={() => navigate('/disabledperson')}>
                                 ยกเลิก
                             </Button>
                         </div>
                         <div className="mx-1">
-                            <Button className="bg-pink-500 text-white" onClick={submit}>
-                                ถัดไป
+                            <Button className="bg-pink-500 text-white" isLoading={loading} onClick={submit}>
+                                บันทึก
                             </Button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
-export default DisabledPersonCreate;
+export default DisabledPersonEdit;

@@ -1,9 +1,9 @@
 import { BreadcrumbItem, Breadcrumbs, Skeleton } from "@nextui-org/react";
 import { FrappeConfig, FrappeContext, useSWR } from "frappe-react-sdk"
 import React, { useContext, useEffect, useState } from "react"
-import { useAlertContext } from "../../providers/AlertProvider"
+import { useAlertContext } from "../../../providers/AlertProvider"
 import { useNavigate } from "react-router-dom"
-import TableData from "../../components/tableData/TableData";
+import TableData from "../../../components/tableData/TableData";
 
 
 const INITIAL_VISIBLE_COLUMNS = [

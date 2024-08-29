@@ -1,46 +1,45 @@
 import { Button, Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
-import { ISupports } from "../../interfaces";
+import { ISupports } from "../../../interfaces";
 import { useContext, useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FrappeConfig, FrappeContext } from "frappe-react-sdk";
-import { Key } from "@react-types/shared";
-import DisabledPersonSupporFrom from "../../components/from/DisabledPersonSupporFrom";
+import { useAlertContext } from "../../../providers/AlertProvider";
+import DisabledPersonSupporFrom from "../../../components/from/DisabledPersonSupporFrom";
 
 
-function SupportCreate() {
+function SupportEdit() {
 
     const { call } = useContext(FrappeContext) as FrappeConfig
 
-    const [createForm, setCreateForm] = useState({
-        support_receiver: "555555555555",
-        support_receiver_name: "ไทย",
-        support_receiver_surname: "รักชาติ",
+    const params = useParams()
 
-        support_date: "",
-        support_budget_year: "",
-        // support_type_name:"",
-        support_giver: "",
-        // support_detail:"",
-        support_image: "",
-    } as ISupports)
+    const [createForm, setCreateForm] = useState({} as ISupports)
 
-    const updateForm = (key: string, value: Key) => {
-        console.log('updateform', key, value)
-        // setCreateForm({
-        //     ...createForm,
-        //     [key]: value
-        // })
-        setCreateForm(prevForm => ({
-            ...prevForm,
-            [key]: value
-        }));
+    const loadSupports = async () => {
+        let response = await call.post("pyoldc.pyoldc.doctype.supports.supports.get_supports_by_name", {
+            name: params.id
+        })
+        let supports: ISupports = response.message
+
+        setCreateForm(supports)
+        console.log(supports)
+        return supports
     }
 
-
-    const [loading, setIsLoading] = useState(true)
     useEffect(() => {
-        setIsLoading(false)
+        loadSupports().then(() => {
+            setIsLoading(false)
+
+        })
+
     }, [])
+
+    const updateForm = (key: string, value: string) => {
+        setCreateForm({
+            ...createForm,
+            [key]: value
+        })
+    }
 
     const [error, setError] = useState({} as ISupports);
 
@@ -76,33 +75,40 @@ function SupportCreate() {
     }
 
     const navigate = useNavigate()
+    const alert = useAlertContext()
+    const [loading, setIsLoading] = useState(true)
     const submit = async () => {
-        console.log(createForm)
         let isValid = true
         //validate()
+        setIsLoading(true)
 
         if (isValid) {
             try {
-                let result = await call.post("pyoldc.pyoldc.doctype.supports.supports.create_support", createForm)
+                console.log(createForm)
+                let result = await call.post("pyoldc.pyoldc.doctype.supports.supports.update_support", {
+                    'name': createForm
+                })
                 console.log('submit result', result)
+                setCreateForm(result.message)
 
+                loadSupports().then(() => setIsLoading(false))
+                window.scrollTo({ top: 0, behavior: 'smooth' });
 
-                navigate("/disabledperson/support")
             } catch (error) {
                 console.log(error)
-
+                alert.showError(JSON.stringify(error))
             }
-
         }
+        setIsLoading(false)
     }
 
 
     return (
-        <div>
+        <div className="px-5 mt-5">
             <Breadcrumbs className="mb-5">
                 <BreadcrumbItem onClick={() => { navigate(`/`) }}>หน้าหลัก</BreadcrumbItem>
-                <BreadcrumbItem onClick={() => { navigate(`/disabledperson/support`) }}>ข้อมูลการยื่นคำร้องขอความช่วยเหลือ</BreadcrumbItem>
-                <BreadcrumbItem>สร้างคำร้องขอความช่วยเหลือ</BreadcrumbItem>
+                <BreadcrumbItem onClick={() => { navigate(`/disabledPerson/support`) }}>ข้อมูลคำร้องความช่วยเหลือ</BreadcrumbItem>
+                <BreadcrumbItem>ข้อมูลคำร้องขอความช่วยเหลือ</BreadcrumbItem>
             </Breadcrumbs>
             <div className="mb-1">
                 <p className="mb-2 text-2xl font-medium">คำร้องขอความช่วยเหลือ</p>
@@ -118,12 +124,12 @@ function SupportCreate() {
                 <div className="max-w-[62.5%] w-full">
                     <div className="flex justify-end">
                         <div className="mx-1">
-                            <Button onClick={() => navigate('/disabledperson/support')}>
+                            <Button isLoading={loading} onClick={() => navigate('/disabledperson/support')}>
                                 ยกเลิก
                             </Button>
                         </div>
                         <div className="mx-1">
-                            <Button className="bg-pink-500 text-white" onClick={submit} >
+                            <Button className="bg-pink-500 text-white" isLoading={loading} onClick={submit}>
                                 บันทึก
                             </Button>
                         </div>
@@ -134,4 +140,4 @@ function SupportCreate() {
     )
 }
 
-export default SupportCreate;
+export default SupportEdit;

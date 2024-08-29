@@ -31,16 +31,17 @@ class Supports(Document):
     pass
 
 
-# @frappe.whitelist()
-# def get_supports_by_personal_number():
+@frappe.whitelist()
+def get_supports_lsit_by_support_receiver():
 
-#     req = frappe.form_dict
-#     assert 'personal_number' in req
+    req = frappe.form_dict
+    assert 'personal_number' in req
 
-#     personal_number = req['personal_number']
-#     support = frappe.get_doc('Supports', {'support_receiver': personal_number})
+    personal_number = req['personal_number']
+    support = frappe.get_list('Supports', fields=['*'], filters={'support_receiver': personal_number})
 
-#     return support
+    return support
+
 
 @frappe.whitelist()
 def get_supports_by_name():
@@ -143,6 +144,7 @@ def upload_image():
     disabled_person.save()
 
     return disabled_person
+
 
 @frappe.whitelist()
 def count_supports():

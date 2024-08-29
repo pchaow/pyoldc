@@ -58,7 +58,9 @@ function Dashboard() {
                 </div>
                 <div>
                     <div className="mb-3 flex justify-end">
-                        <p className="text-pink-500">ดูข้อมูลทั้งหมด</p>
+                        <Link to={'/disabledperson'}>
+                            <p className="text-pink-500">ดูข้อมูลทั้งหมด</p>
+                        </Link>
                     </div>
                     <div className="columns-3 w-full">
                         <Skeleton isLoaded={loading} className="rounded-lg w-full">
@@ -76,17 +78,18 @@ function Dashboard() {
                         </Skeleton>
 
                         <Skeleton isLoaded={loading} className="rounded-lg w-full">
-                            <Card className="" radius="sm">
-                                <CardHeader className="flex gap-3">
-                                    ผู้พิการที่ยังไม่ได้รับการลงทะเบียน
-                                </CardHeader>
-                                <CardBody>
-                                    <p className="text-pink-500 text-2xl font-medium">{countNotRegistertaion}</p>
-                                    <p className="text-gray-400">-33% from last month</p>
-                                </CardBody>
-                            </Card>
+                            <Link to={'/disabledperson'}>
+                                <Card className="" radius="sm">
+                                    <CardHeader className="flex gap-3">
+                                        ผู้พิการที่ยังไม่ได้รับการลงทะเบียน
+                                    </CardHeader>
+                                    <CardBody>
+                                        <p className="text-pink-500 text-2xl font-medium">{countNotRegistertaion}</p>
+                                        <p className="text-gray-400">-33% from last month</p>
+                                    </CardBody>
+                                </Card>
+                            </Link>
                         </Skeleton>
-
                         <Skeleton isLoaded={loading} className="rounded-lg w-full">
                             <Link to={'/disabledperson/support'}>
                                 <Card className="" radius="sm">
