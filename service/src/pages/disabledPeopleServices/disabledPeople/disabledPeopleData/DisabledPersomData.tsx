@@ -1,12 +1,11 @@
-import { Button, Breadcrumbs, BreadcrumbItem, Skeleton, Card, CardHeader, CardBody, } from "@nextui-org/react"
-import { IPeople, ISupports } from "../../../interfaces";
+import { Breadcrumbs, BreadcrumbItem, Skeleton, Card, CardHeader, CardBody, } from "@nextui-org/react"
+import { IPeople } from "../../../../interfaces";
 import { useContext, useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { FrappeConfig, FrappeContext, useSWR } from "frappe-react-sdk";
-import { useAlertContext } from "../../../providers/AlertProvider";
-import DisabledPersonFrom from "../../../components/from/DisabledPersonFrom";
+import { useAlertContext } from "../../../../providers/AlertProvider";
 import { FaRegFolder } from "react-icons/fa";
-import TableData from "../../../components/tableData/TableData";
+import TableData from "../../../../components/tableData/TableData";
 
 
 const INITIAL_VISIBLE_COLUMNS = [
@@ -78,8 +77,8 @@ function DisabledPersonData() {
         <div className="px-5 mt-5">
             <Breadcrumbs className="mb-5">
                 <BreadcrumbItem onClick={() => { navigate(`/`) }}>หน้าหลัก</BreadcrumbItem>
-                <BreadcrumbItem onClick={() => { navigate(`/disabledPerson`) }}>ข้อมูลผู้พิการ</BreadcrumbItem>
-                <BreadcrumbItem>ข้อมูลทั่วไป</BreadcrumbItem>
+                <BreadcrumbItem onClick={() => { navigate(`/disabledPerson`) }}>ข้อมูลผู้พิการทั้งหมด</BreadcrumbItem>
+                <BreadcrumbItem>ข้อมูลผู้พิการ</BreadcrumbItem>
             </Breadcrumbs>
             <div className="mb-1">
                 <p className="mb-2 text-2xl font-medium">ข้อมูลทั่วไป</p>
@@ -87,8 +86,8 @@ function DisabledPersonData() {
             </div>
             <div className="columns-4 w-full my-10">
                 <Skeleton isLoaded={loading} className="rounded-lg w-full">
-                    <Link to={'/disabledperson'}>
-                        <Card className="" radius="sm">
+                    <Link to={`/disabledperson/data/:id/generalInformation/${createForm.personal_number}`}>
+                        <Card onClick={() => { navigate(`/`) }} className="" radius="sm" >
                             <CardBody className="items-center p-5" >
                                 <FaRegFolder fontSize="5.5rem" />
                                 ข้อมูลทั่วไป
@@ -97,7 +96,7 @@ function DisabledPersonData() {
                     </Link>
                 </Skeleton>
                 <Skeleton isLoaded={loading} className="rounded-lg w-full">
-                    <Link to={'/disabledperson'}>
+                    <Link to={`/disabledperson/data/:id/health/${createForm.personal_number}`}>
                         <Card className="" radius="sm">
                             <CardBody className="items-center p-5" >
                                 <FaRegFolder fontSize="5.5rem" />
@@ -107,7 +106,7 @@ function DisabledPersonData() {
                     </Link>
                 </Skeleton>
                 <Skeleton isLoaded={loading} className="rounded-lg w-full">
-                    <Link to={'/disabledperson'}>
+                    <Link to={`/disabledperson/data/:id/problemStatus/${createForm.personal_number}`}>
                         <Card className="" radius="sm">
                             <CardBody className="items-center p-5" >
                                 <FaRegFolder fontSize="5.5rem" />
@@ -117,7 +116,7 @@ function DisabledPersonData() {
                     </Link>
                 </Skeleton>
                 <Skeleton isLoaded={loading} className="rounded-lg w-full">
-                    <Link to={'/disabledperson'}>
+                    <Link to={`/`}>
                         <Card radius="sm">
                             <CardBody className="items-center p-5" >
                                 <FaRegFolder fontSize="5.5rem" />

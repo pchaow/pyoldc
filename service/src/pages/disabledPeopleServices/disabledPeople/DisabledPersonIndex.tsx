@@ -60,7 +60,7 @@ function DisabledPersonIndex() {
     <div className="m-5">
       <Breadcrumbs className="mb-5">
         <BreadcrumbItem onClick={() => { navigate(`/`) }}>หน้าหลัก</BreadcrumbItem>
-        <BreadcrumbItem>ข้อมูลผู้พิการ</BreadcrumbItem>
+        <BreadcrumbItem>ข้อมูลผู้พิการทั้งหมด</BreadcrumbItem>
       </Breadcrumbs>
       <section className="mb-10">
         <div className="mb-10">

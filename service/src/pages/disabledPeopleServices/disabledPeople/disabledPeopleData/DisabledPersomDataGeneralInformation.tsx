@@ -1,14 +1,13 @@
-import { Button, Breadcrumbs, BreadcrumbItem, } from "@nextui-org/react"
-import { IPeople } from "../../../interfaces";
-import { useContext, useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
+import GeneralInformationFrom from "../../../../components/from/DisabledPersonFrom/GeneralInformationFrom";
+import { IPeople } from "../../../../interfaces";
+import { useContext, useEffect, useState } from "react";
 import { FrappeConfig, FrappeContext } from "frappe-react-sdk";
-import { useAlertContext } from "../../../providers/AlertProvider";
-import DisabledPersonFrom from "../../../components/from/DisabledPersonFrom";
+import { useAlertContext } from "../../../../providers/AlertProvider";
+import { BreadcrumbItem, Breadcrumbs, Button, Tab, Tabs } from "@nextui-org/react";
+import Map from "../../../../components/disabledPersonMap/DisabledPersonmap";
 
-
-function DisabledPersonEdit() {
-
+function DisabledPersomDataGeneralInformation() {
     const { call } = useContext(FrappeContext) as FrappeConfig
 
     const params = useParams()
@@ -115,43 +114,69 @@ function DisabledPersonEdit() {
         setIsLoading(false)
     }
 
+    const handlePositionChange = (newPosition) => {
+        updateForm('geojson_position', JSON.stringify(newPosition));
+    }
 
     return (
         <div className="px-5 mt-5">
             <Breadcrumbs className="mb-5">
                 <BreadcrumbItem onClick={() => { navigate(`/`) }}>หน้าหลัก</BreadcrumbItem>
-                <BreadcrumbItem onClick={() => { navigate(`/disabledPerson`) }}>ข้อมูลผู้พิการ</BreadcrumbItem>
-                <BreadcrumbItem>แก้ไขข้อมูลผู้พิการ</BreadcrumbItem>
+                <BreadcrumbItem onClick={() => { navigate(`/disabledPerson`) }}>ข้อมูลผู้พิการทั้งหมด</BreadcrumbItem>
+                <BreadcrumbItem onClick={() => { navigate(`/disabledPerson/data/${createForm.personal_number}`) }}>ข้อมูลผู้พิการ</BreadcrumbItem>
+                <BreadcrumbItem>ข้อมูลทั่วไป</BreadcrumbItem>
             </Breadcrumbs>
             <div className="mb-1">
                 <p className="mb-2 text-2xl font-medium">ข้อมูลทั่วไป</p>
                 <p className="text-gray-500">ข้อมูลทั้งหมดของคุณ {createForm.firstname} {createForm.lastname} </p>
             </div>
-
-            <DisabledPersonFrom
-                createForm={createForm}
-                loading={loading}
-                updateForm={updateForm}
-            />
-
-            <div className="flex justify-center">
-                <div className="max-w-[62.5%] w-full">
-                    <div className="flex justify-end mr-3">
-                        <div className="mx-1">
-                            <Button isLoading={loading} onClick={() => navigate('/disabledperson')}>
-                                ยกเลิก
-                            </Button>
-                        </div>
-                        <div className="mx-1">
-                            <Button className="bg-pink-500 text-white" isLoading={loading} onClick={submit}>
-                                บันทึก
-                            </Button>
+            <Tabs aria-label="Options">
+                <Tab key="General information" title="ข้อมูลทั่วไป">
+                    <div className="flex justify-center">
+                        <div className="max-w-[62.5%] w-full">
+                            <GeneralInformationFrom createForm={createForm} updateForm={updateForm} />
                         </div>
                     </div>
-                </div>
-            </div>
+                    <div className="flex justify-center">
+                        <div className="max-w-[62.5%] w-full">
+                            <div className="flex justify-end">
+                                <div className="mx-1">
+                                    <Button isLoading={loading} onClick={() => navigate('/disabledperson')}>
+                                        ยกเลิก
+                                    </Button>
+                                </div>
+                                <div className="mx-1">
+                                    <Button className="bg-pink-500 text-white" isLoading={loading} onClick={submit}>
+                                        บันทึก
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Tab>
+                <Tab key="Map" title="แผนที่">
+                    <div className="flex justify-center">
+                        <div className="max-w-[62.5%] w-full">
+                            <div className="flex justify-end">
+                                <div className="mx-1">
+                                    <Button isLoading={loading} onClick={() => navigate('/disabledperson')}>
+                                        ยกเลิก
+                                    </Button>
+                                </div>
+                                <div className="mx-1">
+                                    <Button className="bg-pink-500 text-white" isLoading={loading} onClick={submit}>
+                                        บันทึก
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <Map data={createForm} onPositionChange={handlePositionChange} />
+                </Tab>
+            </Tabs>
         </div >
+
     )
 }
 
-export default DisabledPersonEdit;
+export default DisabledPersomDataGeneralInformation;
