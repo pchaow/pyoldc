@@ -37,7 +37,7 @@ function AppNavbar() {
 
 
     return (
-        <Navbar isBordered maxWidth="full" classNames={{ wrapper: "px- md:p-6" }} style={{ backgroundImage: `url(${background})` }}>
+        <Navbar isBordered maxWidth="full" classNames={{ wrapper: "px-3 md:p-6" }} style={{ backgroundImage: `url(${background})` }}>
             <AppNavbarBrand />
 
             <NavbarContent justify="end">

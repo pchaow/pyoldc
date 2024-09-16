@@ -90,9 +90,9 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
         <div>
             <section className="border-solid border-2 rounded-lg shadow p-8 mb-8 mt-8 bg-white">
                 <p className="text-xl font-medium">หน่วยงาน</p>
-                <div className="grid grid-cols-2 gap-8 pt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                     <div>
-                        <p className="pb-2">หน่วยงานที่ดูแล</p>
+                        <p className="pb-1">หน่วยงานที่ดูแล</p>
                         {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                         <Select isRequired size="sm" placeholder="หน่วยงานที่ดูแล" name="disabled_center"
                             selectedKeys={[createForm.disabled_center]} onChange={(e) => { updateForm('disabled_center', e.target.value) }} >
@@ -105,7 +105,7 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
                         {/* </Skeleton> */}
                     </div>
                     <div>
-                        <p className="pb-2">สถานะ</p>
+                        <p className="pb-1">สถานะ</p>
                         {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                         <Select placeholder="สถานะ" size="sm" variant="bordered" name="person_status"
                             selectedKeys={[createForm.person_status]} onChange={(e) => { updateForm('person_status', e.target.value) }} >
@@ -133,72 +133,72 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
             <section className="border-solid border-2 rounded-lg shadow p-8 mb-8 mt 9 bg-white">
                 <div className="mb-7">
                     <p className="text-xl font-medium">ข้อมูลพื้นฐาน</p>
-                    <div className="grid grid-cols-2 gap-8 pt-4">
-                        <div >
-                            <p className="pb-2">เลขบัตรประจำตัวประชาชน</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div>
+                            <p className="pb-1">เลขบัตรประจำตัวประชาชน</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Input variant="bordered" radius="sm" type="text" placeholder="กรอกเลขบัตรประจำตัวประชาชน" name="personal_number"
                                 value={createForm.personal_number} onChange={(e) => { updateForm('personal_number', e.target.value) }} />
                             {/* </Skeleton> */}
                         </div>
                         <div>
-                            <p className="pb-2">วัน/เดือน/ปีเกิด</p>
+                            <p className="pb-1">วัน/เดือน/ปีเกิด</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Input variant="bordered" radius="sm" type="date" placeholder="วัน/เดือน/ปีเกิด" name="birthdate"
                                 value={createForm.birthdate} onChange={(e) => { updateForm('birthdate', e.target.value) }} />
                             {/* </Skeleton> */}
                         </div>
                         <div>
-                            <p className="pb-2">ชื่อ</p>
+                            <p className="pb-1">ชื่อ</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Input variant="bordered" radius="sm" type="text" placeholder="กรอกชื่อ" name="firstname"
                                 value={createForm.firstname} onChange={(e) => { updateForm('firstname', e.target.value) }} />
                             {/* </Skeleton> */}
                         </div>
                         <div>
-                            <p className="pb-2">นามสกุล</p>
+                            <p className="pb-1">นามสกุล</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Input variant="bordered" radius="sm" type="text" placeholder="กรอกนามสกุล" name="lastname"
                                 value={createForm.lastname} onChange={(e) => { updateForm('lastname', e.target.value) }} />
                             {/* </Skeleton> */}
                         </div>
                         <div>
-                            <p className="pb-2">สัญชาติ</p>
+                            <p className="pb-1">สัญชาติ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกสัญชาติ" name="" />
                         </div>
                         <div>
-                            <p className="pb-2">ศาสนา</p>
+                            <p className="pb-1">ศาสนา</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกศาสนา" name="" />
                         </div>
                         <div>
-                            <p className="pb-2">สถานภาพ</p>
+                            <p className="pb-1">สถานภาพ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกสถานภาพ" name="" />
                         </div>
-                        <div className="grid gap-4 grid-cols-3 col-span-2">
+                        <div className="grid gap-4 sm:grid-cols-3 sm:col-span-2">
                             <div>
-                                <p className="pb-2">วันออกบัตร</p>
+                                <p className="pb-1">วันออกบัตร</p>
                                 {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                                 <Input variant="bordered" radius="sm" type="date" placeholder="วัน/เดือน/ปีเกิด" name="card_issue_date"
                                     value={createForm.card_issue_date} onChange={(e) => { updateForm('card_issue_date', e.target.value) }} />
                                 {/* </Skeleton> */}
                             </div>
                             <div>
-                                <p className="pb-2">วันบัตรหมดอายุ</p>
+                                <p className="pb-1">วันบัตรหมดอายุ</p>
                                 {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                                 <Input variant="bordered" radius="sm" type="date" name="card_expired_date"
                                     value={createForm.card_expired_date} onChange={(e) => { updateForm('card_expired_date', e.target.value) }} />
                                 {/* </Skeleton> */}
                             </div>
                         </div>
-                        <div className="col-span-2">
-                            <p className="pb-2">ที่อยู่</p>
+                        <div className="sm:col-span-2">
+                            <p className="pb-1">ที่อยู่</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Textarea isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกที่อยู่ตามทะเบียนบ้าน" name="address"
                                 value={createForm.address} onChange={(e) => { updateForm('address', e.target.value) }} />
                             {/* </Skeleton> */}
                         </div>
                         <div>
-                            <p className="pb-2">ประเภทความพิการ</p>
+                            <p className="pb-1">ประเภทความพิการ</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Select placeholder="ประเภทความพิการ" size="sm" variant="bordered" name="disabled_type"
                                 selectedKeys={[createForm.disabled_type]} onChange={(e) => { updateForm('disabled_type', e.target.value) }} >
@@ -226,8 +226,8 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
                             </Select>
                             {/* </Skeleton> */}
                         </div>
-                        <div className="col-span-2">
-                            <p className="pb-2">สาเหตุ</p>
+                        <div className="sm:col-span-2">
+                            <p className="pb-1">สาเหตุ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกสาเหตุ" name="" />
                         </div>
                     </div>
@@ -235,16 +235,16 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
 
                 <div className="mb-7">
                     <p className="text-xl font-medium">บัญชีธนาคาร</p>
-                    <div className="grid grid-cols-2 gap-8 pt-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                         <div>
-                            <p className="pb-2">เลขบัญชี</p>
+                            <p className="pb-1">เลขบัญชี</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Input variant="bordered" radius="sm" type="text" placeholder="กรอกเลขบัญชีธนาคาร"
                                 name="book_account_number" value={createForm.book_account_number} onChange={(e) => { updateForm('book_account_number', e.target.value) }} />
                             {/* </Skeleton> */}
                         </div>
                         <div>
-                            <p className="pb-2">ธนาคาร</p>
+                            <p className="pb-1">ธนาคาร</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Input variant="bordered" radius="sm" type="text" placeholder="กรอกชื่อธนาคาร"
                                 name="book_account_bank" value={createForm.book_account_bank} onChange={(e) => { updateForm('book_account_bank', e.target.value) }} />
@@ -255,23 +255,23 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
 
                 <div className="mb-7">
                     <p className="text-xl font-medium">ข้อมูลผู้ดูแล</p>
-                    <div className="grid grid-cols-2 gap-8 pt-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                         <div>
-                            <p className="pb-2">ชื่อผู้ดูแล</p>
+                            <p className="pb-1">ชื่อผู้ดูแล</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Input variant="bordered" radius="sm" type="text" placeholder="กรอกชื่อผู้ดูแล"
                                 name="guardian_firstname" value={createForm.guardian_firstname} onChange={(e) => { updateForm('guardian_firstname', e.target.value) }} />
                             {/* </Skeleton> */}
                         </div>
                         <div>
-                            <p className="pb-2">นามสกุลผู้ดูแล</p>
+                            <p className="pb-1">นามสกุลผู้ดูแล</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Input variant="bordered" radius="sm" type="text" placeholder="กรอกนามสกุลผู้ดูแล"
                                 name="guardian_lastname" value={createForm.guardian_lastname} onChange={(e) => { updateForm('guardian_lastname', e.target.value) }} />
                             {/* </Skeleton> */}
                         </div>
                         <div className="col-span-2">
-                            <p className="pb-2">ที่อยู่ผู้ดูแล</p>
+                            <p className="pb-1">ที่อยู่ผู้ดูแล</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Textarea variant="bordered" radius="sm" type="text" placeholder="กรอกที่อยู่ผู้ดูแล" name="guardian_address"
                                 value={createForm.guardian_address} onChange={(e) => { updateForm('guardian_address', e.target.value) }}
@@ -279,14 +279,14 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
                             {/* </Skeleton> */}
                         </div>
                         <div>
-                            <p className="pb-2">เลขบัญชีผู้ดูแล</p>
+                            <p className="pb-1">เลขบัญชีผู้ดูแล</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Input variant="bordered" radius="sm" type="text" placeholder="กรอกเลขบัญชีผู้ดูแล"
                                 name="guardian_account_number" value={createForm.guardian_account_number} onChange={(e) => { updateForm('guardian_account_number', e.target.value) }} />
                             {/* </Skeleton> */}
                         </div>
                         <div>
-                            <p className="pb-2">ธนาคารของผู้ดูแล</p>
+                            <p className="pb-1">ธนาคารของผู้ดูแล</p>
                             {/* <Skeleton isLoaded={!loading} className="rounded-lg w-full"> */}
                             <Input variant="bordered" radius="sm" type="text" placeholder="กรอกชื่อธนาคารผู้ดูแล"
                                 name="guardian_account_bank" value={createForm.guardian_account_bank} onChange={(e) => { updateForm('guardian_account_bank', e.target.value) }} />
@@ -298,12 +298,12 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
 
             <section className="border-solid border-2 rounded-lg shadow p-8 mb-8 mt 9 bg-white">
                 <p className="text-xl font-medium">สำเนาเอกสาร</p>
-                <div className="grid grid-cols-2 gap-8 pt-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-1 pt-4">
                     <div>
-                        <p className="pb-2">สำเนาบัตรประจำตัวประชาชนผู้พิการ</p>
+                        <p className="pb-1">สำเนาบัตรประจำตัวประชาชนผู้พิการ</p>
                         <div >
                             <div className="relative z-0 mt-0.5 flex w-full -space-x-px">
-                                <div className="block w-full  appearance-none rounded-l-md border border-gray-200 bg-white px-3 py-2 text-sm transition focus:z-10 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
+                                <div className="block w-full  appearance-none rounded-l-sm text-gray-600 border  border-gray-200 bg-white px-3 py-2 text-sm transition focus:z-10 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
                                     {createForm.disabled_card ? createForm.disabled_card : "สำเนาบัตรประจำตัวประชาชนผู้พิการ"}
                                 </div>
                                 {createForm.disabled_card ? <Button isLoading={isUploading} onClick={() => { window.open(`${siteName}/${createForm.disabled_card}`) }} className="h- inline-flex w-auto items-center justify-center rounded-r rounded-l border border-gray-200 bg-white px-3 py-2  text-gray-800 hover:border-gray-300 hover:bg-gray-100 " ><RiEyeFill /> </Button> : ''}
@@ -322,10 +322,10 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
                         </div>
                     </div>
                     <div>
-                        <p className="pb-2">สำเนาทะเบียนบ้านผู้พิการ</p>
+                        <p className="pb-1">สำเนาทะเบียนบ้านผู้พิการ</p>
                         <div >
                             <div className="relative z-0 mt-0.5 flex w-full -space-x-px">
-                                <div className="block w-full  appearance-none rounded-l-md border border-gray-200 bg-white px-3 py-2 text-sm transition focus:z-10 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
+                                <div className="block w-full  appearance-none rounded-l-sm text-gray-600 border border-gray-200 bg-white px-3 py-2 text-sm transition focus:z-10 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
                                     {createForm.disabled_house_register ? createForm.disabled_house_register : "สำเนาทะเบียนบ้านผู้พิการ"}
                                 </div>
                                 {createForm.disabled_house_register ? <Button isLoading={isUploading} onClick={() => { window.open(`${siteName}/${createForm.disabled_card}`) }} className="h- inline-flex w-auto items-center justify-center rounded-r rounded-l border border-gray-200 bg-white px-3 py-2  text-gray-800 hover:border-gray-300 hover:bg-gray-100 " ><RiEyeFill /> </Button> : ''}
@@ -343,10 +343,10 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
                         </div>
                     </div>
                     <div>
-                        <p className="pb-2">สำเนาสมุดบัญชีเงินฝากผู้พิการ</p>
+                        <p className="pb-1">สำเนาสมุดบัญชีเงินฝากผู้พิการ</p>
                         <div >
                             <div className="relative z-0 mt-0.5 flex w-full -space-x-px">
-                                <div className="block w-full  appearance-none rounded-l-md border border-gray-200 bg-white px-3 py-2 text-sm transition focus:z-10 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
+                                <div className="block w-full  appearance-none rounded-l-sm text-gray-600 border border-gray-200 bg-white px-3 py-2 text-sm transition focus:z-10 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
                                     {createForm.disabled_book_account ? createForm.disabled_book_account : "สำเนาสมุดบัญชีเงินฝากผู้พิการ"}
                                 </div>
                                 {createForm.disabled_book_account ? <Button isLoading={isUploading} onClick={() => { window.open(`${siteName}/${createForm.disabled_card}`) }} className="h- inline-flex w-auto items-center justify-center rounded-r rounded-l border border-gray-200 bg-white px-3 py-2  text-gray-800 hover:border-gray-300 hover:bg-gray-100 " ><RiEyeFill /> </Button> : ''}
@@ -364,10 +364,10 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
                         </div>
                     </div>
                     <div>
-                        <p className="pb-2">สำเนาบัตรประจำตัวประชาชนผู้ดูแล</p>
+                        <p className="pb-1">สำเนาบัตรประจำตัวประชาชนผู้ดูแล</p>
                         <div >
                             <div className="relative z-0 mt-0.5 flex w-full -space-x-px">
-                                <div className="block w-full  appearance-none rounded-l-md border border-gray-200 bg-white px-3 py-2 text-sm transition focus:z-10 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
+                                <div className="block w-full  appearance-none rounded-l-sm text-gray-600 border border-gray-200 bg-white px-3 py-2 text-sm transition focus:z-10 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
                                     {createForm.guardian_card ? createForm.guardian_card : "สำเนาบัตรประจำตัวประชาชนผู้ดูแล"}
                                 </div>
                                 {createForm.guardian_card ? <Button isLoading={isUploading} onClick={() => { window.open(`${siteName}/${createForm.disabled_card}`) }} className="h- inline-flex w-auto items-center justify-center rounded-r rounded-l border border-gray-200 bg-white px-3 py-2  text-gray-800 hover:border-gray-300 hover:bg-gray-100 " ><RiEyeFill /> </Button> : ''}
@@ -385,9 +385,9 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
                         </div>
                     </div>
                     <div>
-                        <p className="pb-2">สำเนาสมุดบัญชีเงินฝากพร้อมสำเนาของผู้ดูแลโดยชอบธรรม</p>                                        <div >
+                        <p className="pb-1">สำเนาสมุดบัญชีเงินฝากพร้อมสำเนาของผู้ดูแลโดยชอบธรรม</p>                                        <div >
                             <div className="relative z-0 mt-0.5 flex w-full -space-x-px">
-                                <div className="block w-full  appearance-none rounded-l-md border border-gray-200 bg-white px-3 py-2 text-sm transition focus:z-10 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
+                                <div className="block w-full  appearance-none rounded-l-sm text-gray-600 border border-gray-200 bg-white px-3 py-2 text-sm transition focus:z-10 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:opacity-75">
                                     {createForm.guardian_book_account ? createForm.guardian_book_account : "สำเนาสมุดบัญชีเงินฝากผู้ดูแล"}
                                 </div>
                                 {createForm.guardian_book_account ? <Button isLoading={isUploading} onClick={() => { window.open(`${siteName}/${createForm.disabled_card}`) }} className="h- inline-flex w-auto items-center justify-center rounded-r rounded-l border border-gray-200 bg-white px-3 py-2  text-gray-800 hover:border-gray-300 hover:bg-gray-100 " ><RiEyeFill /> </Button> : ''}
@@ -409,26 +409,26 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
 
             <section className="border-solid border-2 rounded-lg shadow p-8 mb-8 mt-8 bg-white">
                 <p className="text-xl font-medium">รายได้/อาชีพ</p>
-                <div className="grid grid-cols-2 gap-8 pt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                     <div >
-                        <p className="pb-2">รายได้</p>
+                        <p className="pb-1">รายได้</p>
                         <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกรายได้ต่อเดือน" name="" />
 
                     </div>
                     <div>
-                        <p className="pb-2">อาชีพ</p>
+                        <p className="pb-1">อาชีพ</p>
                         <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกอาชีพ" name="" />
 
                     </div>
                     <div>
-                        <p className="pb-2">ข้อมูลการกู้ยืมเงินเพื่อประกอบอาชีพ</p>
+                        <p className="pb-1">ข้อมูลการกู้ยืมเงินเพื่อประกอบอาชีพ</p>
                         <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกข้อมูลการกู้(ยืมถ้ามี)" name="" />
                     </div>
                     <div>
-                        <p className="pb-2">หนี้สินในครัวเรือน</p>
+                        <p className="pb-1">หนี้สินในครัวเรือน</p>
                         <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกข้อมูลหนี้สินในครัวเรือน(ถ้ามี)" name="" />
                     </div>
-                    <div className="col-span-2">
+                    <div className="sm:col-span-2">
                         <p>ความต้องการในการพัฒนาศักยภาพ</p>
                         <Textarea isRequired variant="bordered" radius="sm" type="text" placeholder="ความต้องการในการพัฒนาศักยภาพ" name="" />
                     </div>
@@ -437,14 +437,14 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
 
             <section className="border-solid border-2 rounded-lg shadow p-8 mb-8 mt-8 bg-white">
                 <p className="text-xl font-medium">การศึกษา</p>
-                <div className="grid grid-cols-2 gap-8 pt-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                     <div >
-                        <p className="pb-2">การศึกษา</p>
+                        <p className="pb-1">การศึกษา</p>
                         <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกข้อมูล" name="" />
 
                     </div>
                     <div>
-                        <p className="pb-2">สถานศึกษา</p>
+                        <p className="pb-1">สถานศึกษา</p>
                         <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกชื่อสถานศึกษา" name="" />
                     </div>
                 </div>
@@ -454,100 +454,100 @@ const GeneralInformationFrom: React.FC<FormProps> = ({ createForm, updateForm })
                 <p className="text-xl font-medium">ข้อมูลครอบครัว</p>
                 <div>
                     <p className="mt-2">บิดา</p>
-                    <div className="grid grid-cols-2 gap-8 pt-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                         <div >
-                            <p className="pb-2">ชื่อ</p>
+                            <p className="pb-1">ชื่อ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกชื่อ" name="" />
 
                         </div>
                         <div>
-                            <p className="pb-2">นามสกุล</p>
+                            <p className="pb-1">นามสกุล</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกนามสกุล" name="" />
                         </div>
                         <div >
-                            <p className="pb-2">สัญชาติ</p>
+                            <p className="pb-1">สัญชาติ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกสัญชาติ" name="" />
 
                         </div>
                         <div>
-                            <p className="pb-2">ศาสนา</p>
+                            <p className="pb-1">ศาสนา</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกศาสนา" name="" />
                         </div>
                         <div >
-                            <p className="pb-2">สถานภาพ</p>
+                            <p className="pb-1">สถานภาพ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกสถานภาพ" name="" />
 
                         </div>
                         <div>
-                            <p className="pb-2">วันเดือนปีเกิด</p>
+                            <p className="pb-1">วันเดือนปีเกิด</p>
                             <DatePicker isRequired variant="bordered" size="sm" showMonthAndYearPickers name="" />
                         </div>
                         <div >
-                            <p className="pb-2">อาชีพ</p>
+                            <p className="pb-1">อาชีพ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกอาชีพ" name="" />
 
                         </div>
                         <div>
-                            <p className="pb-2">หนี้ครัวเรือน</p>
+                            <p className="pb-1">หนี้ครัวเรือน</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกหนี้สินในครัวเรือน" name="" />
                         </div>
                         <div >
-                            <p className="pb-2">กรรมสิทธิ์ในที่ดิน</p>
+                            <p className="pb-1">กรรมสิทธิ์ในที่ดิน</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกข้อมูลกรรมสิทธิ์ที่ดิน(ถ้ามี)" name="" />
 
                         </div>
                         <div>
-                            <p className="pb-2">สวัสดิการที่ได้รับ</p>
+                            <p className="pb-1">สวัสดิการที่ได้รับ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกข้อมูลสวัสดิการที่ได้รับ" name="" />
                         </div>
                     </div>
                 </div>
                 <div>
                     <p className="mt-2">มารดา</p>
-                    <div className="grid grid-cols-2 gap-8 pt-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                         <div >
-                            <p className="pb-2">ชื่อ</p>
+                            <p className="pb-1">ชื่อ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกชื่อ" name="" />
 
                         </div>
                         <div>
-                            <p className="pb-2">นามสกุล</p>
+                            <p className="pb-1">นามสกุล</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกนามสกุล" name="" />
                         </div>
                         <div >
-                            <p className="pb-2">สัญชาติ</p>
+                            <p className="pb-1">สัญชาติ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกสัญชาติ" name="" />
 
                         </div>
                         <div>
-                            <p className="pb-2">ศาสนา</p>
+                            <p className="pb-1">ศาสนา</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกศาสนา" name="" />
                         </div>
                         <div >
-                            <p className="pb-2">สถานภาพ</p>
+                            <p className="pb-1">สถานภาพ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกสถานภาพ" name="" />
 
                         </div>
                         <div>
-                            <p className="pb-2">วันเดือนปีเกิด</p>
+                            <p className="pb-1">วันเดือนปีเกิด</p>
                             <DatePicker isRequired variant="bordered" size="sm" showMonthAndYearPickers name="" />
                         </div>
                         <div >
-                            <p className="pb-2">อาชีพ</p>
+                            <p className="pb-1">อาชีพ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกอาชีพ" name="" />
 
                         </div>
                         <div>
-                            <p className="pb-2">หนี้ครัวเรือน</p>
+                            <p className="pb-1">หนี้ครัวเรือน</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกหนี้สินในครัวเรือน" name="" />
                         </div>
                         <div >
-                            <p className="pb-2">กรรมสิทธิ์ในที่ดิน</p>
+                            <p className="pb-1">กรรมสิทธิ์ในที่ดิน</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกข้อมูลกรรมสิทธิ์ที่ดิน(ถ้ามี)" name="" />
 
                         </div>
                         <div>
-                            <p className="pb-2">สวัสดิการที่ได้รับ</p>
+                            <p className="pb-1">สวัสดิการที่ได้รับ</p>
                             <Input isRequired variant="bordered" radius="sm" type="text" placeholder="กรอกข้อมูลสวัสดิการที่ได้รับ" name="" />
                         </div>
                     </div>

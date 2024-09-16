@@ -4,8 +4,7 @@ import { useContext, useEffect, useState } from "react"
 import { IPeople } from "../../../interfaces"
 import { useNavigate } from "react-router-dom"
 import { Key } from "@react-types/shared";
-import DisabledPersonFrom from "../../../components/from/DisabledPersonFrom"
-
+import DisabledPersonFrom from "../../../components/from/disabledPersonFrom/DisabledPersonFrom" 
 
 function DisabledPersonCreate() {
 

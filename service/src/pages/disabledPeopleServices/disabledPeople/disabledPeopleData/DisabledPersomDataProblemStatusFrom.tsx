@@ -4,8 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { FrappeConfig, FrappeContext } from "frappe-react-sdk";
 import { useAlertContext } from "../../../../providers/AlertProvider";
 import { BreadcrumbItem, Breadcrumbs, Button, Tab, Tabs } from "@nextui-org/react";
-import ProblemStatusFrom from "../../../../components/from/DisabledPersonFrom/ProblemStatus";
-
+import ProblemStatusFrom from "../../../../components/from/disabledPersonFrom/ProblemStatus";
 function DisabledPersomDataProblemStatusFrom() {
     const { call } = useContext(FrappeContext) as FrappeConfig
 
@@ -126,7 +125,7 @@ function DisabledPersomDataProblemStatusFrom() {
                 <p className="text-gray-500">ข้อมูลสภาพปัญหาของคุณ {createForm.firstname} {createForm.lastname} </p>
             </div>
             <div className="flex justify-center">
-                <div className="max-w-[62.5%] w-full">
+                <div className="md:max-w-[80.5%] lg:max-w-[62.5%] w-full">
                     <ProblemStatusFrom />
                 </div>
             </div>

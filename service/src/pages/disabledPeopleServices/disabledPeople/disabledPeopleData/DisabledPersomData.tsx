@@ -10,14 +10,16 @@ import TableData from "../../../../components/tableData/TableData";
 
 const INITIAL_VISIBLE_COLUMNS = [
     "name",
-    "support_receiver",
-    "support_receiver_name",
-    "support_receiver_surname",
+    "support_giver",
+    "disabled_center",
+    "support_type_name",
     "actions",
 ];
 
 const columns = [
+    { name: "หน่วยงานที่ดูแล", uid: "support_giver", sortable: true },
     { name: "เลขความช่วยเหลือ", uid: "name", sortable: true },
+    { name: "เรื่องที่ขอความช่วยเหลือ", uid: "support_type_name" },
     { name: "เลขประจำตัวผู้พิการ", uid: "support_receiver", sortable: true },
     { name: "ชื่อ", uid: "support_receiver_name", sortable: true },
     { name: "นามสกุล", uid: "support_receiver_surname" },
@@ -50,7 +52,7 @@ function DisabledPersonData() {
             personal_number: params.id
         });
         let supports = response.message;
-
+        console.log("supports", supports)
         setSupports(supports);
         return supports;
     }
@@ -74,7 +76,7 @@ function DisabledPersonData() {
 
 
     return (
-        <div className="px-5 mt-5">
+        <div className="px-5 mt-5 max-w-[400px] sm:max-w-none">
             <Breadcrumbs className="mb-5">
                 <BreadcrumbItem onClick={() => { navigate(`/`) }}>หน้าหลัก</BreadcrumbItem>
                 <BreadcrumbItem onClick={() => { navigate(`/disabledPerson`) }}>ข้อมูลผู้พิการทั้งหมด</BreadcrumbItem>
@@ -84,12 +86,13 @@ function DisabledPersonData() {
                 <p className="mb-2 text-2xl font-medium">ข้อมูลทั่วไป</p>
                 <p className="text-gray-500">ข้อมูลทั้งหมดของคุณ {createForm.firstname} {createForm.lastname} </p>
             </div>
-            <div className="columns-4 w-full my-10">
+            {/* <div className="md:columns-4 w-full my-10"> */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-10 w-full">
                 <Skeleton isLoaded={loading} className="rounded-lg w-full">
                     <Link to={`/disabledperson/data/:id/generalInformation/${createForm.personal_number}`}>
                         <Card onClick={() => { navigate(`/`) }} className="" radius="sm" >
                             <CardBody className="items-center p-5" >
-                                <FaRegFolder fontSize="5.5rem" />
+                                <FaRegFolder className=" md:text-8xl" />
                                 ข้อมูลทั่วไป
                             </CardBody >
                         </Card>
@@ -99,7 +102,7 @@ function DisabledPersonData() {
                     <Link to={`/disabledperson/data/:id/health/${createForm.personal_number}`}>
                         <Card className="" radius="sm">
                             <CardBody className="items-center p-5" >
-                                <FaRegFolder fontSize="5.5rem" />
+                                <FaRegFolder className=" md:text-8xl" />
                                 สุขภาพ / สวัสดิการ
                             </CardBody >
                         </Card>
@@ -109,7 +112,7 @@ function DisabledPersonData() {
                     <Link to={`/disabledperson/data/:id/problemStatus/${createForm.personal_number}`}>
                         <Card className="" radius="sm">
                             <CardBody className="items-center p-5" >
-                                <FaRegFolder fontSize="5.5rem" />
+                                <FaRegFolder className=" md:text-8xl" />
                                 สภาพปํญหา
                             </CardBody >
                         </Card>
@@ -119,7 +122,7 @@ function DisabledPersonData() {
                     <Link to={`/`}>
                         <Card radius="sm">
                             <CardBody className="items-center p-5" >
-                                <FaRegFolder fontSize="5.5rem" />
+                                <FaRegFolder className=" md:text-8xl" />
                                 หลักฐานความช่วยเหลือ
                             </CardBody >
                         </Card>
@@ -131,7 +134,7 @@ function DisabledPersonData() {
                     <p className="mb-2 text-2xl font-medium">ข้อมูลการยืนคำร้องขอความช่วยเหลือ</p>
                     <p className="text-gray-500">ข้อมูลการยืนคำร้องขอความช่วยเหลือทั้งหมดของคุณ {createForm.firstname} {createForm.lastname} </p>
                 </div>
-                <Skeleton isLoaded={loading} className="rounded-lg w-full">
+                <Skeleton isLoaded={loading} className="rounded-lg w-full ">
                     <TableData columns={columns} users={supports} statusOptions={statusOptions} INITIAL_VISIBLE_COLUMNS={INITIAL_VISIBLE_COLUMNS} />
                 </Skeleton>
             </div>

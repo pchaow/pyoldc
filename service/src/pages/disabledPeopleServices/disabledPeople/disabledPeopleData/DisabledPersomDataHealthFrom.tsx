@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { FrappeConfig, FrappeContext } from "frappe-react-sdk";
 import { useAlertContext } from "../../../../providers/AlertProvider";
 import { BreadcrumbItem, Breadcrumbs, Button, Tab, Tabs } from "@nextui-org/react";
-import HealthFrom from "../../../../components/from/DisabledPersonFrom/HealthFrom";
+import HealthFrom from "../../../../components/from/disabledPersonFrom/HealthFrom";
 
 function DisabledPersomDataHealthFrom() {
     const { call } = useContext(FrappeContext) as FrappeConfig
@@ -126,7 +126,7 @@ function DisabledPersomDataHealthFrom() {
                 <p className="text-gray-500">ข้อมูลสุภาพและสวัสดิการทั้งหมดของคุณ {createForm.firstname} {createForm.lastname} </p>
             </div>
             <div className="flex justify-center">
-                <div className="max-w-[62.5%] w-full">
+                <div className="md:max-w-[80.5%] lg:max-w-[62.5%] w-full">
                     <HealthFrom />
                 </div>
             </div>

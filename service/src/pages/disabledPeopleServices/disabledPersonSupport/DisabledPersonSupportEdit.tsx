@@ -114,14 +114,12 @@ function SupportEdit() {
                 <p className="mb-2 text-2xl font-medium">คำร้องขอความช่วยเหลือ</p>
                 <p className="text-gray-500">ข้อมูลคำร้องขอความช่วยเหลือ</p>
             </div>
-
-            <DisabledPersonSupporFrom
-                createForm={createForm}
-                loading={loading}
-                updateForm={updateForm} />
-
             <div className="flex justify-center">
-                <div className="max-w-[62.5%] w-full">
+                <div className="md:max-w-[80.5%] lg:max-w-[62.5%] w-full">
+                    <DisabledPersonSupporFrom
+                        createForm={createForm}
+                        loading={loading}
+                        updateForm={updateForm} />
                     <div className="flex justify-end">
                         <div className="mx-1">
                             <Button isLoading={loading} onClick={() => navigate('/disabledperson/support')}>
@@ -134,6 +132,12 @@ function SupportEdit() {
                             </Button>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div className="flex justify-center">
+                <div className="max-w-[62.5%] w-full">
+
                 </div>
             </div>
         </div>

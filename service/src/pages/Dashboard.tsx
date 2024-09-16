@@ -50,7 +50,7 @@ function Dashboard() {
 
 
     return (
-        <div className="px-5 mt-5">
+        <div className="px-5 mt-5 max-w-[400px] sm:max-w-none">
             <section className="mb-10">
                 <div className="mb-1">
                     <p className="mb-2 text-2xl font-medium">ข้อมูลโดยรวม</p>
@@ -62,14 +62,12 @@ function Dashboard() {
                             <p className="text-pink-500">ดูข้อมูลทั้งหมด</p>
                         </Link>
                     </div>
-                    <div className="columns-3 w-full">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 my-10 w-full">
                         <Skeleton isLoaded={loading} className="rounded-lg w-full">
                             <Link to={'/disabledperson'}>
-                                <Card className="" radius="sm">
-                                    <CardHeader className="flex gap-3">
-                                        ผู้พิการที่ลงทะเบียนแล้ว
-                                    </CardHeader>
+                                <Card className="mb-2" radius="sm">
                                     <CardBody>
+                                        ผู้พิการที่ลงทะเบียนแล้ว
                                         <p className="text-pink-500 text-2xl font-medium">{countRegistertaion}</p>
                                         <p className="text-gray-400">+20% from last month</p>
                                     </CardBody>
@@ -79,11 +77,9 @@ function Dashboard() {
 
                         <Skeleton isLoaded={loading} className="rounded-lg w-full">
                             <Link to={'/disabledperson'}>
-                                <Card className="" radius="sm">
-                                    <CardHeader className="flex gap-3">
-                                        ผู้พิการที่ยังไม่ได้รับการลงทะเบียน
-                                    </CardHeader>
+                                <Card className="mb-2" radius="sm">
                                     <CardBody>
+                                    ผู้พิการที่ยังไม่ได้รับการลงทะเบียน
                                         <p className="text-pink-500 text-2xl font-medium">{countNotRegistertaion}</p>
                                         <p className="text-gray-400">-33% from last month</p>
                                     </CardBody>
@@ -92,18 +88,15 @@ function Dashboard() {
                         </Skeleton>
                         <Skeleton isLoaded={loading} className="rounded-lg w-full">
                             <Link to={'/disabledperson/support'}>
-                                <Card className="" radius="sm">
-                                    <CardHeader className="flex gap-3">
-                                        คำร้องขอความช่วยเหลือ
-                                    </CardHeader>
+                                <Card className="mb-2  " radius="sm">
                                     <CardBody>
+                                        คำร้องขอความช่วยเหลือ
                                         <p className="text-pink-500 text-2xl font-medium">{countSupportsData}</p>
                                         <p className="text-gray-400">+8% from last month</p>
                                     </CardBody>
                                 </Card>
                             </Link>
                         </Skeleton>
-
                     </div>
                 </div>
             </section >
@@ -111,9 +104,9 @@ function Dashboard() {
                 <div className="mb-3 flex justify-end">
                     <p className="text-pink-500">ดูข้อมูลทั้งหมด</p>
                 </div>
-                <div className="columns-2 w-full">
-                    <Skeleton isLoaded={loading} className="rounded-lg w-full">
-                        <Card className="" radius="sm">
+                <div className="lg:columns-2 w-full">
+                    <Skeleton isLoaded={loading} className="rounded-lg w-full mb-2">
+                        <Card className="w-full" radius="sm">
                             <CardBody>
                                 <LineChart />
                             </CardBody>

@@ -87,7 +87,8 @@ def get_disabled_center_list(user=None):
 def get_disabled_persons():
 
     query = frappe.qb.from_('Disabled Person').select(
-        'personal_number', 'firstname', 'lastname', 'disabled_type', 'person_status')
+        
+        'disabled_center', 'personal_number', 'firstname', 'lastname', 'disabled_type', 'person_status')
     result = query.run(as_dict=True)
 
     return result

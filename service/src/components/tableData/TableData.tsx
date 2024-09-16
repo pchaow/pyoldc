@@ -29,7 +29,7 @@ import { DeleteIcon } from "../icon/DeleteIcon";
 export default function TableData({ columns, users, statusOptions, INITIAL_VISIBLE_COLUMNS }) {
     const navigate = useNavigate()
     const personIndex = INITIAL_VISIBLE_COLUMNS.includes("personal_number");
-    const supportIndex = INITIAL_VISIBLE_COLUMNS.includes("support_receiver");
+    const supportIndex = INITIAL_VISIBLE_COLUMNS.includes("name");
 
     const [filterValue, setFilterValue] = React.useState("");
     const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
@@ -193,8 +193,9 @@ export default function TableData({ columns, users, statusOptions, INITIAL_VISIB
                 <div className="flex justify-between gap-3 items-end">
                     <Input
                         isClearable
-                        className="w-full sm:max-w-[44%]"
+                        className="w-full sm:max-w-[44%] md:max-w-[90%]"
                         placeholder="ค้นหา..."
+                        variant="bordered"
                         startContent={<SearchIcon />}
                         value={filterValue}
                         onClear={() => onClear()}

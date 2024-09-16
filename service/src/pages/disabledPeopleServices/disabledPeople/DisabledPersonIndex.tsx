@@ -6,14 +6,15 @@ import TableData from "../../../components/tableData/TableData";
 
 const INITIAL_VISIBLE_COLUMNS = [
   "personal_number",
+  "disabled_center",
   "firstname",
   "lastname",
   "disabled_type",
-  "person_status",
   "actions",
 ];
 
 const columns = [
+  { name: "หน่วยงานที่ดูแล", uid: "disabled_center", sortable: true },
   { name: "เลขประจำตัวประชาชน", uid: "personal_number", sortable: true },
   { name: "ชื่อ", uid: "firstname", sortable: true },
   { name: "นามสกุล", uid: "lastname", sortable: true },
@@ -57,7 +58,7 @@ function DisabledPersonIndex() {
 
 
   return (
-    <div className="m-5">
+    <div className="px-5 mt-5 max-w-[400px] sm:max-w-none">
       <Breadcrumbs className="mb-5">
         <BreadcrumbItem onClick={() => { navigate(`/`) }}>หน้าหลัก</BreadcrumbItem>
         <BreadcrumbItem>ข้อมูลผู้พิการทั้งหมด</BreadcrumbItem>

@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import GeneralInformationFrom from "../../../../components/from/DisabledPersonFrom/GeneralInformationFrom";
+import GeneralInformationFrom from "../../../../components/from/disabledPersonFrom/GeneralInformationFrom";
 import { IPeople } from "../../../../interfaces";
 import { useContext, useEffect, useState } from "react";
 import { FrappeConfig, FrappeContext } from "frappe-react-sdk";
@@ -119,7 +119,7 @@ function DisabledPersomDataGeneralInformation() {
     }
 
     return (
-        <div className="px-5 mt-5">
+        <div className="px-5 mt-5  md:max-w-none">
             <Breadcrumbs className="mb-5">
                 <BreadcrumbItem onClick={() => { navigate(`/`) }}>หน้าหลัก</BreadcrumbItem>
                 <BreadcrumbItem onClick={() => { navigate(`/disabledPerson`) }}>ข้อมูลผู้พิการทั้งหมด</BreadcrumbItem>
@@ -133,12 +133,8 @@ function DisabledPersomDataGeneralInformation() {
             <Tabs aria-label="Options">
                 <Tab key="General information" title="ข้อมูลทั่วไป">
                     <div className="flex justify-center">
-                        <div className="max-w-[62.5%] w-full">
+                        <div className="md:max-w-[80.5%] lg:max-w-[62.5%] w-full">
                             <GeneralInformationFrom createForm={createForm} updateForm={updateForm} />
-                        </div>
-                    </div>
-                    <div className="flex justify-center">
-                        <div className="max-w-[62.5%] w-full">
                             <div className="flex justify-end">
                                 <div className="mx-1">
                                     <Button isLoading={loading} onClick={() => navigate('/disabledperson')}>
@@ -152,11 +148,12 @@ function DisabledPersomDataGeneralInformation() {
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </Tab>
                 <Tab key="Map" title="แผนที่">
                     <div className="flex justify-center">
-                        <div className="max-w-[62.5%] w-full">
+                        <div className="md:max-w-[80.5%] lg:max-w-[62.5%] w-full">
                             <div className="flex justify-end">
                                 <div className="mx-1">
                                     <Button isLoading={loading} onClick={() => navigate('/disabledperson')}>

@@ -1,13 +1,11 @@
-import { Input, Select, SelectItem, Button, Tabs, Tab, Skeleton, Textarea, DatePicker } from "@nextui-org/react"
-import Map from "../disabledPersonMap/DisabledPersonmap";
-import { ICenter, IPeople } from "../../interfaces";
+import { Tabs, Tab} from "@nextui-org/react"
+import Map from "../../disabledPersonMap/DisabledPersonmap";
+import { IPeople } from "../../../interfaces";
 import { FrappeConfig, FrappeContext, useSWR } from "frappe-react-sdk";
 import { useContext, useEffect, useRef, useState } from "react";
-import { RiDeleteBin2Fill, RiEyeFill } from "react-icons/ri";
-import { BiSolidCloudUpload } from "react-icons/bi";
-import GeneralInformationFrom from "./DisabledPersonFrom/GeneralInformationFrom";
-import HealthFrom from "./DisabledPersonFrom/HealthFrom";
-import ProblemStatusFrom from "./DisabledPersonFrom/ProblemStatus";
+import GeneralInformationFrom from "./GeneralInformationFrom";
+import HealthFrom from "./HealthFrom";
+import ProblemStatusFrom from "./ProblemStatus";
 
 interface FormProps {
   createForm: IPeople;

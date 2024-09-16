@@ -63,7 +63,7 @@ function SupportIndex() {
 
 
     return (
-        <div className="m-5">
+        <div className="px-5 mt-5 max-w-[400px] sm:max-w-none">
             <Breadcrumbs className="mb-5">
                 <BreadcrumbItem onClick={() => { navigate(`/`) }}>หน้าหลัก</BreadcrumbItem>
                 <BreadcrumbItem>ข้อมูลการยื่นคำร้องขอความช่วยเหลือ</BreadcrumbItem>
