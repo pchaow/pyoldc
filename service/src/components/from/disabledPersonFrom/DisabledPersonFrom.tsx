@@ -1,5 +1,5 @@
 import { Tabs, Tab} from "@nextui-org/react"
-import Map from "../../disabledPersonMap/DisabledPersonmap";
+import Map from "../../map/Map";
 import { IPeople } from "../../../interfaces";
 import { FrappeConfig, FrappeContext, useSWR } from "frappe-react-sdk";
 import { useContext, useEffect, useRef, useState } from "react";
@@ -30,26 +30,20 @@ const DisabledPersonFrom: React.FC<FormProps> = ({
       <Tabs aria-label="Options">
         <Tab key="General information" title="ข้อมูลทั่วไป">
           <div className="flex justify-center">
-            <div className="max-w-[62.5%] w-full">
               <GeneralInformationFrom createForm={createForm} updateForm={updateForm} />
             </div>
-          </div>
         </Tab>
         <Tab key="Map" title="แผนที่">
           <Map data={createForm} onPositionChange={handlePositionChange} />
         </Tab>
         <Tab key="Health" title="สุขภาพ">
           <div className="flex justify-center">
-            <div className="max-w-[62.5%] w-full">
               <HealthFrom />
-            </div>
           </div>
         </Tab>
         <Tab key="Problem status" title="ข้อมูลสภาพปัญหา">
           <div className="flex justify-center">
-            <div className="max-w-[62.5%] w-full">
               <ProblemStatusFrom />
-            </div>
           </div>
         </Tab>
       </Tabs>

@@ -109,51 +109,23 @@ export default function TableData({ columns, users, statusOptions, INITIAL_VISIB
 
     const renderCell = React.useCallback((user, columnKey) => {
         const cellValue = user[columnKey];
-        if (personIndex) {
-            switch (columnKey) {
-                case "actions":
-                    return (
-                        <div className="relative flex justify-start items-center gap-2">
-                            <Tooltip placement="top" content="แก้ไข">
-                                <span className="text-lg cursor-pointer active:opacity-50"
-                                    onClick={() => { navigate(`/disabledperson/data/${user.personal_number}`) }} >
-                                    <EditIcon />
-                                </span>
-                            </Tooltip>
-                            <Tooltip placement="top" content="ลบ">
-                                <span className="text-lg cursor-pointer active:opacity-50 text-danger-600">
-                                    <DeleteIcon />
-                                </span>
-                            </Tooltip>
-                        </div>
-                    );
-                default:
-                    return cellValue;
-            }
+        console.log("personIndex", personIndex)
+        switch (columnKey) {
+            case "actions":
+                return (
+                    <div className="relative flex justify-start items-center gap-2">
+                        {personIndex && (<Tooltip placement="top" content="แก้ไข"><span className="text-lg cursor-pointer active:opacity-50" onClick={() => { navigate(`/disabledperson/data/${user.personal_number}`) }} ><EditIcon /></span></Tooltip>)}
+                        {supportIndex && (<Tooltip placement="top" content="แก้ไข"><span className="text-lg cursor-pointer active:opacity-50" onClick={() => { navigate(`/disabledperson/support/edit/${user.name}`) }} ><EditIcon /></span></Tooltip>)}
+                        <Tooltip placement="top" content="ลบ">
+                            <span className="text-lg cursor-pointer active:opacity-50 text-danger-600">
+                                <DeleteIcon />
+                            </span>
+                        </Tooltip>
+                    </div>
+                );
+            default:
+                return cellValue;
         }
-        else if (supportIndex) {
-            switch (columnKey) {
-                case "actions":
-                    return (
-                        <div className="relative flex justify-start items-center gap-2">
-                            <Tooltip placement="top" content="แก้ไข">
-                                <span className="text-lg cursor-pointer active:opacity-50"
-                                    onClick={() => { navigate(`/disabledperson/support/edit/${user.name}`) }} >
-                                    <EditIcon />
-                                </span>
-                            </Tooltip>
-                            <Tooltip placement="top" content="ลบ">
-                                <span className="text-lg cursor-pointer active:opacity-50 text-danger-600">
-                                    <DeleteIcon />
-                                </span>
-                            </Tooltip>
-                        </div>
-                    );
-                default:
-                    return cellValue;
-            }
-        }
-
     }, []);
 
     const onNextPage = React.useCallback(() => {
@@ -244,9 +216,8 @@ export default function TableData({ columns, users, statusOptions, INITIAL_VISIB
                                 ))}
                             </DropdownMenu>
                         </Dropdown>
-                        <Button color="primary" endContent={<PlusIcon />}>
-                            เพิ่มผู้พิการ
-                        </Button>
+                        {personIndex && <Button color="primary" endContent={<PlusIcon />} onClick={() => { navigate(`/disabledperson/create`) }}>เพิ่มผู้พิการ</Button>}
+                        {supportIndex && <Button color="primary" endContent={<PlusIcon />} onClick={() => { navigate(`/disabledperson/support/create`) }}>เพิ่มคำร้องขอความช่วยเหลือ</Button>}
                     </div>
                 </div>
                 <div className="flex justify-between items-center">
@@ -350,7 +321,6 @@ export default function TableData({ columns, users, statusOptions, INITIAL_VISIB
                     )}
                 </TableBody>
             )}
-
         </Table>
     );
 }

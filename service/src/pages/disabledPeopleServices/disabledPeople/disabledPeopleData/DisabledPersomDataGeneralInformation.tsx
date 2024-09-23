@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { FrappeConfig, FrappeContext } from "frappe-react-sdk";
 import { useAlertContext } from "../../../../providers/AlertProvider";
 import { BreadcrumbItem, Breadcrumbs, Button, Tab, Tabs } from "@nextui-org/react";
-import Map from "../../../../components/disabledPersonMap/DisabledPersonmap";
+import Map from "../../../../components/map/Map";
 
 function DisabledPersomDataGeneralInformation() {
     const { call } = useContext(FrappeContext) as FrappeConfig

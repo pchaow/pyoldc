@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { FrappeConfig, FrappeContext, useSWR } from "frappe-react-sdk";
 import { useAlertContext } from "../../../../providers/AlertProvider";
 import { FaRegFolder } from "react-icons/fa";
-import TableData from "../../../../components/tableData/TableData";
+import TableData from "../../../../components/table/Table";
 
 
 const INITIAL_VISIBLE_COLUMNS = [

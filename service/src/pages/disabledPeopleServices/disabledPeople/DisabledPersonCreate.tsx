@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react"
 import { IPeople } from "../../../interfaces"
 import { useNavigate } from "react-router-dom"
 import { Key } from "@react-types/shared";
-import DisabledPersonFrom from "../../../components/from/disabledPersonFrom/DisabledPersonFrom" 
+import DisabledPersonFrom from "../../../components/from/disabledPersonFrom/DisabledPersonFrom"
 
 function DisabledPersonCreate() {
 
@@ -115,15 +115,14 @@ function DisabledPersonCreate() {
                 <p className="text-gray-500">ลงทะเบียนผู้พิการ</p>
             </div>
 
-            <DisabledPersonFrom
-                createForm={createForm}
-                loading={loading}
-                updateForm={updateForm}
-            />
-
             <div className="flex justify-center">
                 <div className="max-w-[62.5%] w-full">
                     <div className="flex justify-end mr-3">
+                        <DisabledPersonFrom
+                            createForm={createForm}
+                            loading={loading}
+                            updateForm={updateForm}
+                        />
                         <div className="mx-1">
                             <Button onClick={() => navigate('/disabledperson')}>
                                 ยกเลิก

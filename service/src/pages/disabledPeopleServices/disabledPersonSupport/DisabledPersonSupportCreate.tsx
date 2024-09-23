@@ -98,33 +98,39 @@ function SupportCreate() {
 
 
     return (
-        <div>
+        <div className="px-5 mt-5">
             <Breadcrumbs className="mb-5">
                 <BreadcrumbItem onClick={() => { navigate(`/`) }}>หน้าหลัก</BreadcrumbItem>
                 <BreadcrumbItem onClick={() => { navigate(`/disabledperson/support`) }}>ข้อมูลการยื่นคำร้องขอความช่วยเหลือ</BreadcrumbItem>
                 <BreadcrumbItem>สร้างคำร้องขอความช่วยเหลือ</BreadcrumbItem>
             </Breadcrumbs>
             <div className="mb-1">
-                <p className="mb-2 text-2xl font-medium">คำร้องขอความช่วยเหลือ</p>
+                <p className="mb-2 text-2xl font-medium">สร้างคำร้องขอความช่วยเหลือ</p>
                 <p className="text-gray-500">ข้อมูลคำร้องขอความช่วยเหลือ</p>
             </div>
 
-            <DisabledPersonSupporFrom
-                createForm={createForm}
-                loading={loading}
-                updateForm={updateForm} />
-
             <div className="flex justify-center">
                 <div className="max-w-[62.5%] w-full">
-                    <div className="flex justify-end">
+                    <div className="flex justify-end mr-3">
+                        <DisabledPersonSupporFrom
+                            createForm={createForm}
+                            loading={loading}
+                            updateForm={updateForm}
+                        />
+                    </div>
+                </div>
+            </div>
+            <div className="flex justify-center">
+                <div className="max-w-[62.5%] w-full">
+                    <div className="flex justify-end mr-3">
                         <div className="mx-1">
                             <Button onClick={() => navigate('/disabledperson/support')}>
                                 ยกเลิก
                             </Button>
                         </div>
                         <div className="mx-1">
-                            <Button className="bg-pink-500 text-white" onClick={submit} >
-                                บันทึก
+                            <Button className="bg-pink-500 text-white" onClick={submit}>
+                                ถัดไป
                             </Button>
                         </div>
                     </div>
